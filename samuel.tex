@@ -31,6 +31,7 @@
 \newcommand{\HH}{\mathbf{H}}
 
 \newcommand{\idl}[1]{\mathfrak{#1}}
+\newcommand{\QED}{LQQD.}
 \newcommand{\oline}[1]{\overline{#1}}
 \newcommand{\then}{\ensuremath{\Rightarrow}\xspace}
 \newcommand{\disc}{\mathfrak{D}}
@@ -60,15 +61,6 @@
 
 \newtheoremstyle{defi}{}{}{}{}{\bfseries}{.}{ }{}
 
-\theoremstyle{defi}
-\newtheorem*{definition*}{Definici\'on}
-\newtheorem{definition}{Definici\'on}
-\newcommand{\exername}{}
-\newtheorem*{namedexer}{\exername}
-\newenvironment{exer*}[1]{\renewcommand{\exername}{#1}\begin{namedexer}}{\end{namedexer}}
-
-%\newtheoremstyle{enonce}{\topsep}{\topsep}{\slshape}{}{\bfseries}{.}{.5em}{}
-
 \newtheoremstyle{note}% name
   {}%      Space above
   {}%      Space below
@@ -79,6 +71,15 @@
   { }%     Space after thm head: " " = normal interword space;
         %       \newline = linebreak
   {}%         Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{note}
+\newtheorem*{definition*}{Definici\'on}
+\newtheorem{definition}{Definici\'on}
+\newcommand{\exername}{}
+\newtheorem*{namedexer}{\exername}
+\newenvironment{exer*}[1]{\renewcommand{\exername}{#1}\begin{namedexer}}{\end{namedexer}}
+
+%\newtheoremstyle{enonce}{\topsep}{\topsep}{\slshape}{}{\bfseries}{.}{.5em}{}
 
 \theoremstyle{note}
 \newtheorem{theorem}{Teorema}
@@ -146,16 +147,12 @@
 
 \newpage
 
-\phantom{.}\vfill
-\noindent
 Pierre Samuel, doctor en ciencias, profesor de la universidad Paris XI, naci\'o en 1921.
 Sus trabajos conciernen principalmente el \'algebra conmutativa y la geometr\'ia algebraica.
 
-\vfill\vfill
-
 \tableofcontents
 
-%\addchap{Introducci\'on}
+\chapter*{Introducci\'on}
 
 La Teor\'ia de N\'umeros, o Aritm\'etica, a veces es llamada
 la ``Reina de la Matem\'atica''. La simplicidad del objeto
@@ -359,9 +356,9 @@ Por ejemplo, la funci\'on seno, $\sin:\RR\to\RR$ puede definirse por
 x\mapsto\sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{(2n+1)!}.
 \end{gather*}
 Utilizamos las notaciones usuales para los siguientes objetos matem\'aticos:
-\begin{labeling}[:]{$\FF_{q}$}
+%\begin{labeling}[:]{$\FF_{q}$}
 %\item[$\NN$] conj
-%\begin{enumerate}
+\begin{enumerate}
 \item[$\NN$] conjunto de los enteros naturales $(0,1,2,\dots,n,\dots)$ (N por ``n\'umeros'').
 \item[$\ZZ$] anillo de los enteros racionales (enteros naturales o sus opuestos)
 (Z por ``Zahlen'').
@@ -370,8 +367,8 @@ Utilizamos las notaciones usuales para los siguientes objetos matem\'aticos:
 \item[$\RR$] cuerpo de los n\'umeros reales (R por ``reales'').
 \item[$\CC$] cuerpo de los n\'umeros complejos (C por ``complejos'').
 \item[$\FF_{q}$] cuerpo finito de $q$ elementos (F por ``finito'' o ``field'').
-%\end{enumerate}
-\end{labeling}
+\end{enumerate}
+%\end{labeling}
 
 \mainmatter
 
@@ -585,7 +582,7 @@ en efecto, todo factor primo de $y'^{2}$ aparece completamente, con su exponente
 o bien en $x'$ o bien en $z'$. Se tiene por lo tanto que $z+x = 2u^{2}$, $z-x = 2v^{2}$,
 $y^{2} = 2u^{2}\cdot 2v^{2}$, de donde $x = u^{2}-v^{2}$, $y=2uv$, $z=u^{2}+v^{2}$. Aqu\'i,
 $u$ y $v$ son coprimos, pues sino $x$, $y$, $z$ tendr\'ian un factor primo en com\'un. Las
-f\'ormulas~\eqref{eq-1.2-2} se deducen multiplicando de nuevo el m.c.d. por $d$. %\QED
+f\'ormulas~\eqref{eq-1.2-2} se deducen multiplicando de nuevo el m.c.d. por $d$.
 
 \begin{theorem}\label{teo2.2.2}
 La ecuaci\'on $x^{4}+y^{4}=z^{2}$ no tiene soluciones en n\'umeros enteros $x, y, z \geq 1$.
@@ -682,7 +679,7 @@ genera el grupo $\ZZ/n\ZZ$.
 Finalmente, si $\oline q$ genera $\ZZ/n\ZZ$, existe un entero
 $x$ tal que $x\cdot\oline q = \oline 1$. Luego, tal que $xq\equiv 1\pmod n$. Es decir,
 existe un entero $y$ tal que $xq-1=yn$, de donde $1 = xq-yn$. Esta es una identidad de Bezout
-que muestra que $q$ es coprimo con $n$.%\QED
+que muestra que $q$ es coprimo con $n$.
 
 \begin{lemma}\label{lem1.3.1}
 Sean $A$ un anillo, $\idl{a}$ y $\idl{b}$ dos ideal de $A$ tales que $\idl{a}+\idl{b}=A$.
@@ -1256,7 +1253,7 @@ son enteros coprimos entre s\'i, y luego se reduce m\'odulo $4$) muestra que el 
 todo los cuerpos.
 \end{example*}
 
-\chapter%[Elementos enteros sobre un anillo]
+\chapter[Elementos enteros sobre un anillo]
 {Elementos enteros sobre un anillo; elementos algebraicos sobre un cuerpo}
 \label{cap2}
 
@@ -1457,7 +1454,7 @@ Observemos que solamente utilizamos las propiedades multiplicativas de los domin
 \'unica} es \'integramente cerrado.
 \end{comm}
 
-\section{Elementos algebraicos sobre un cuerpo. Extensiones algebraicas}
+\section[Elementos algebraicos sobre un cuerpo]{Elementos algebraicos sobre un cuerpo. Extensiones algebraicas}
 \label{sec2.3}
 
 \begin{definition*}
@@ -2284,7 +2281,7 @@ X^{p^{r-1}(p-1)}+X^{p^{r-1}(p-2)}+\dots+X^{p^{r-1}}+1=\frac{X^{p^{r}}-1}{X^{p^{r
 \end{gather*}
 \end{remark*}
 
-\addsec{Ap\'endice. El cuerpo de los n\'umeros complejos es algebraicamente cerrado}%
+\section*{Ap\'endice. El cuerpo de los n\'umeros complejos es algebraicamente cerrado}%
 
 Dado un cuerpo $K$, consideremos las siguientes propiedades:
 \begin{enumerate}
@@ -3505,7 +3502,7 @@ Utilizando m\'etodos pertenecientes a la Geometr\'ia Algebraica puede demostrars
 n\'umero finito de elementos), el grupo $B^{*}$ de los elementos inversibles es de tipo finito (\cite{Samuel1}).
 \end{comm}
 
-\addsec{Ap\'endice. Un c\'alculo de vol\'umen\protect\sectionmark{Un c\'alculo de vol\'umen}}
+\section*[Un c\'alculo de vol\'umen]{Ap\'endice. Un c\'alculo de vol\'umen}
 
 \begin{proposition*}
 Sean $r_{1},r_{2}\in\NN$, $n=r_{1}+2r_{2}$, $t\in\RR$ y $B_{t}$ el conjunto de aquellos
@@ -5041,7 +5038,7 @@ Comparando~\eqref{eq-6.5-1} y~\eqref{eq-6.5-3} obtenemos $\left(\frac{2}{q}\righ
 que no es otra cosa que la ``f\'ormula comlementaria'' dif\'icil (cap\'itulo~\ref{cap5}, \S\ref{sec5.5},
 proposici\'on~\ref{prop5.5.2}, {\itshape b})).
 
-\addchap{Complementos sin demostraci\'on}
+\chapter*{Complementos sin demostraci\'on}
 
 \setcounter{equation}{0}
 
@@ -5056,7 +5053,7 @@ de la teor\'ia de n\'umeros (ad\`eles, cuerpos de clases, funciones zeta y serie
 simples, teor\'ia anal\'itica, formas cuadr\'aticas, etc.). Para eso, env\'ia al lector a los t\'itulos nombrados
 en la primera mitad de la bibliograf\'ia (que aparecen sin n\'umero).
 
-\addsec*{F\'ormulas de transitividad}
+\section*{F\'ormulas de transitividad}
 
 Dados $3$ cuerpos encajados $K\subset L\subset M$, cada uno extensi\'on de {\em grado finito} del anterior, tenemos las
 aplicaciones ``traza''
@@ -5072,7 +5069,7 @@ N_{M/K}(x) &= N_{L/K}(N_{M/L}(x))
 \right.
 \end{gather}
 
-\addsec*{Norma relativa de un ideal}
+\section*{Norma relativa de un ideal}
 
 Dados dos cuerpos de n\'umeros ecajados $K\subset K'$ y un ideal (entero o fraccionario) $\idl{a}'$ de $K'$,
 el ideal de $K$ generado por los $N_{K'/K}(x)$ ($x\in\idl{a}$) se llama {\em norma relativa} de $\idl{a}'$,
@@ -5112,7 +5109,7 @@ cf.~cap\'itulo~\ref{cap5}, \S\ref{sec5.3}, definici\'on~\ref{defV.3.1})
 Todo lo anterior se generaliza a un anillo de Dedekind $A$ y a su clausura \'integra $A'$ en una extensi\'on
 de grado finito del cuerpo de fracciones de $A$.
 
-\addsec*{El diferente}
+\section*{El diferente}
 
 Lo que sigue es v\'alido para un anillo de Dedekind $A$ y a la clausura \'integra de $A$ en una extensi\'on
 de grado finito de su cuerpo de fracciones. Para simplificar, supondremos que estamos en el caso de un cuerpo
@@ -5161,7 +5158,7 @@ para los diferentes:
 \diff_{K''/K} = \diff_{K''/K'}\cdot\diff_{K'/K}.
 \end{gather}
 
-\addchap{Ejercicios}
+\chapter*{Ejercicios}
 
 Los ejercicios marcados $A$ son ejercicios ``de reflexi\'on inmediata'', destinados al
 control directo del conocicimiento ?. Los ejercicios marcados B son m\'as elaborados. Los
