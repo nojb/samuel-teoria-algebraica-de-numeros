@@ -1,21 +1,24 @@
-\documentclass[10pt,oneside,bibtotoc,smallheadings,leqno,a5paper,DIV=12]{scrbook}
-
-%,numbers=noenddot
-%paper=8.4in:5.9in
-%paper=a5paper
-
+\documentclass[oneside,bibtotoc,leqno,spanish]{amsbook}
 \usepackage[colorlinks,linkcolor=blue,linktocpage=false,pagebackref=true]{hyperref}
+
+\usepackage[paperwidth=14.81cm, paperheight=21.01cm, right=1.5cm, left=1.5cm, top=1.5cm, bottom=1.5cm, includehead, includefoot]{geometry}
 
 %,es-noindentfirst
 %,es-nosectiondot
-\usepackage[spanish]{babel}
+\usepackage{babel}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{xspace}
 %\usepackage{lmodern}
-\usepackage{helvet}
+%\usepackage{helvet}
+\usepackage{frenchmath}
 \usepackage[color]{showkeys}
+%\usepackage[md,small]{titlesec}
+
+%\titleformat*{\section}{\centering\bf}
+%\titleformat*{\chapter}{\centering}
+%\titleformat*{\subsubsection}{\itshape}
 
 \unaccentedoperators
 
@@ -37,15 +40,15 @@
 \renewcommand{\to}[1][]{\xrightarrow{#1}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
 
-\addtokomafont{sectioning}{\boldmath}
+%\addtokomafont{sectioning}{\boldmath}
 
-\DeclareMathOperator{\card}{card}
-\DeclareMathOperator{\Ker}{Ker}
+%\DeclareMathOperator{\card}{card}
+%\DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\mcm}{mcm}
 \DeclareMathOperator{\mcd}{mcd}
 \DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\Tr}{Tr}
-\DeclareMathOperator{\Hom}{Hom}
+%\DeclareMathOperator{\Hom}{Hom}
 
 \numberwithin{equation}{section}
 \renewcommand{\theequation}{\arabic{equation}}
@@ -56,7 +59,7 @@
 	{\begin{trivlist}\item\small\itshape}
 	{\end{trivlist}}
 
-\newtheoremstyle{defi}{\topsep}{\topsep}{}{}{\bfseries}{.}{.5em}{}
+\newtheoremstyle{defi}{}{}{}{}{\bfseries}{.}{ }{}
 
 \theoremstyle{defi}
 \newtheorem*{definition*}{Definici\'on}
@@ -65,9 +68,20 @@
 \newtheorem*{namedexer}{\exername}
 \newenvironment{exer*}[1]{\renewcommand{\exername}{#1}\begin{namedexer}}{\end{namedexer}}
 
-\newtheoremstyle{enonce}{\topsep}{\topsep}{\slshape}{}{\bfseries}{.}{.5em}{}
+%\newtheoremstyle{enonce}{\topsep}{\topsep}{\slshape}{}{\bfseries}{.}{.5em}{}
 
-\theoremstyle{enonce}
+\newtheoremstyle{note}% name
+  {}%      Space above
+  {}%      Space below
+  {\itshape}%         Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  { }%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%         Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{note}
 \newtheorem{theorem}{Teorema}
 \newtheorem*{theorem*}{Teorema}
 \newtheorem{proposition}{Proposici\'on}
@@ -83,8 +97,9 @@
 	\begin{namedthm}}%
 	{\end{namedthm}}
 
-\newtheoremstyle{rem}{\topsep}{\topsep}{}{}{\slshape}{.}{.5em}{}
-
+\newtheoremstyle{rem}
+  {}{}{}{}{\itshape}{.}{ }{}
+  
 \theoremstyle{rem}
 \newtheorem{example}{Ejemplo}
 \newtheorem*{example*}{Ejemplo}
@@ -95,7 +110,7 @@
 %  \renewcommand{\proofname}%
 %    {\sl Demostraci\'on}%
 %}
-%\renewcommand{\spanishproofname}{Prueba}
+\renewcommand{\spanishproofname}{\itshape Demostraci\'on}
 
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\arabic{section}}
@@ -121,13 +136,13 @@
 \author{Pierre Samuel}
 \date{}
 
-\dedication{
-\itshape
-A NICOLE
-
-qui a su cr\'eer autour de moi
-une atmosph\`ere favorable \`a ce livre.
-}
+%\dedication{
+%\itshape
+%A NICOLE
+%
+%qui a su cr\'eer autour de moi
+%une atmosph\`ere favorable \`a ce livre.
+%}
 
 \setcounter{tocdepth}{1}
 
@@ -148,7 +163,7 @@ Sus trabajos conciernen principalmente el \'algebra conmutativa y la geometr\'ia
 
 \tableofcontents
 
-\addchap{Introducci\'on}
+%\addchap{Introducci\'on}
 
 La Teor\'ia de N\'umeros, o Aritm\'etica, a veces es llamada
 la ``Reina de la Matem\'atica''. La simplicidad del objeto
@@ -260,7 +275,7 @@ muy valiosas.
 julio 1971
 \end{flushright}
 
-\addchap{Repaso de notaciones, definiciones y resultados}
+%\addchap{Repaso de notaciones, definiciones y resultados}
 
 Utilizamos las notaciones usuales de la teor\'ia de conjuntos:
 $\in$, $\subset$, $\cup$, $\cap$.
