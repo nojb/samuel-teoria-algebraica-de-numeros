@@ -10,15 +10,8 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{xspace}
-%\usepackage{lmodern}
-%\usepackage{helvet}
 \usepackage{frenchmath}
 \usepackage[color]{showkeys}
-%\usepackage[md,small]{titlesec}
-
-%\titleformat*{\section}{\centering\bf}
-%\titleformat*{\chapter}{\centering}
-%\titleformat*{\subsubsection}{\itshape}
 
 \unaccentedoperators
 
@@ -40,8 +33,6 @@
 \renewcommand{\to}[1][]{\xrightarrow{#1}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
 
-%\addtokomafont{sectioning}{\boldmath}
-
 %\DeclareMathOperator{\card}{card}
 %\DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\mcm}{mcm}
@@ -53,8 +44,11 @@
 \numberwithin{equation}{section}
 \renewcommand{\theequation}{\arabic{equation}}
 
+\addto\captionsspanish{\renewcommand{\chaptername}{Cap\'itulo}}
+\addto\captionsspanish{\renewcommand{\contentsname}{\'Indice general}}
+
 \newenvironment{comm}%
-	{\begin{quotation}\itshape}
+	{\begin{quotation}\itshape\Small}
 	{\end{quotation}}
 
 \newtheoremstyle{defi}{}{}{}{}{\bfseries}{.}{ }{}
@@ -67,8 +61,8 @@
   {\scshape}% Thm head font
   {.}%        Punctuation after thm head
   { }%     Space after thm head: " " = normal interword space;
-        %       \newline = linebreak
-  {}%         Thm head spec (can be left empty, meaning `normal')
+     %       \newline = linebreak
+  {}%Thm head spec (can be left empty, meaning `normal')
 
 \theoremstyle{note}
 \newtheorem*{definition*}{Definici\'on}
@@ -76,8 +70,6 @@
 \newcommand{\exername}{}
 \newtheorem*{namedexer}{\exername}
 \newenvironment{exer*}[1]{\renewcommand{\exername}{#1}\begin{namedexer}}{\end{namedexer}}
-
-%\newtheoremstyle{enonce}{\topsep}{\topsep}{\slshape}{}{\bfseries}{.}{.5em}{}
 
 \theoremstyle{note}
 \newtheorem{theorem}{Teorema}
@@ -126,14 +118,6 @@
 \title{Teor\'ia de n\'umeros algebraica}
 \author{Pierre Samuel}
 \date{}
-
-%\dedication{
-%\itshape
-%A NICOLE
-%
-%qui a su cr\'eer autour de moi
-%une atmosph\`ere favorable \`a ce livre.
-%}
 
 \setcounter{tocdepth}{1}
 
@@ -262,7 +246,15 @@ muy valiosas.
 julio 1971
 \end{flushright}
 
-%\addchap{Repaso de notaciones, definiciones y resultados}
+{
+\itshape
+A NICOLE
+
+qui a su cr\'eer autour de moi
+une atmosph\`ere favorable \`a ce livre.
+}
+
+\chapter*{Repaso de notaciones,\\ definiciones y resultados}
 
 Utilizamos las notaciones usuales de la teor\'ia de conjuntos:
 $\in$, $\subset$, $\cup$, $\cap$.
@@ -354,19 +346,17 @@ Por ejemplo, la funci\'on seno, $\sin:\RR\to\RR$ puede definirse por
 x\mapsto\sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{(2n+1)!}.
 \end{gather*}
 Utilizamos las notaciones usuales para los siguientes objetos matem\'aticos:
-%\begin{labeling}[:]{$\FF_{q}$}
-%\item[$\NN$] conj
-\begin{enumerate}
-\item[$\NN$] conjunto de los enteros naturales $(0,1,2,\dots,n,\dots)$ (N por ``n\'umeros'').
-\item[$\ZZ$] anillo de los enteros racionales (enteros naturales o sus opuestos)
+
+\begin{trivlist}\setlength{\itemindent}{\parindent}
+\item[$\NN$:] conjunto de los enteros naturales $(0,1,2,\dots,n,\dots)$ (N por ``n\'umeros'').
+\item[$\ZZ$:] anillo de los enteros racionales (enteros naturales o sus opuestos)
 (Z por ``Zahlen'').
-\item[$\QQ$] cuerpo de n\'umeros racionales (cocientes de elementos de $\ZZ$) (Q por
+\item[$\QQ$:] cuerpo de n\'umeros racionales (cocientes de elementos de $\ZZ$) (Q por
 ``quotients'').
-\item[$\RR$] cuerpo de los n\'umeros reales (R por ``reales'').
-\item[$\CC$] cuerpo de los n\'umeros complejos (C por ``complejos'').
-\item[$\FF_{q}$] cuerpo finito de $q$ elementos (F por ``finito'' o ``field'').
-\end{enumerate}
-%\end{labeling}
+\item[$\RR$:] cuerpo de los n\'umeros reales (R por ``reales'').
+\item[$\CC$:] cuerpo de los n\'umeros complejos (C por ``complejos'').
+\item[$\FF_{q}$:] cuerpo finito de $q$ elementos (F por ``finito'' o ``field'').
+\end{trivlist}
 
 \mainmatter
 
