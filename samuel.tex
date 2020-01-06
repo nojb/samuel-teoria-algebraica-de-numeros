@@ -1,4 +1,4 @@
-\documentclass[oneside,bibtotoc,leqno,spanish]{amsbook}
+\documentclass[bibtotoc,leqno,spanish]{amsbook}
 \usepackage[colorlinks,linkcolor=blue,linktocpage=false,pagebackref=true]{hyperref}
 
 \usepackage[paperwidth=14.81cm, paperheight=21.01cm, right=1.5cm, left=1.5cm, top=1.5cm, bottom=1.5cm, includehead, includefoot]{geometry}
@@ -31,7 +31,6 @@
 \newcommand{\HH}{\mathbf{H}}
 
 \newcommand{\idl}[1]{\mathfrak{#1}}
-\newcommand{\QED}{}%{\hfill\ensuremath{\square}}
 \newcommand{\oline}[1]{\overline{#1}}
 \newcommand{\then}{\ensuremath{\Rightarrow}\xspace}
 \newcommand{\disc}{\mathfrak{D}}
@@ -55,7 +54,7 @@
 
 \newenvironment{comm}%
 %	{\begin{labeling}{Exam}\item{}\small}
-%	{\end{labeling}}	
+%	{\end{labeling}}
 	{\begin{trivlist}\item\small\itshape}
 	{\end{trivlist}}
 
@@ -75,7 +74,7 @@
   {}%      Space below
   {\itshape}%         Body font
   {}%         Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}% Thm head font
+  {\scshape}% Thm head font
   {.}%        Punctuation after thm head
   { }%     Space after thm head: " " = normal interword space;
         %       \newline = linebreak
@@ -99,18 +98,12 @@
 
 \newtheoremstyle{rem}
   {}{}{}{}{\itshape}{.}{ }{}
-  
+
 \theoremstyle{rem}
 \newtheorem{example}{Ejemplo}
 \newtheorem*{example*}{Ejemplo}
 \newtheorem{remark}{Observaci\'on}
 \newtheorem*{remark*}{Observaci\'on}
-
-%\addto\captionsspanish{%
-%  \renewcommand{\proofname}%
-%    {\sl Demostraci\'on}%
-%}
-\renewcommand{\spanishproofname}{\itshape Demostraci\'on}
 
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\arabic{section}}
@@ -130,7 +123,6 @@
 
 \numberwithin{footnote}{section}%restart in each section
 \renewcommand{\thefootnote}{\arabic{footnote}}
-\renewcommand{\qedsymbol}{}
 
 \title{Teor\'ia de n\'umeros algebraica}
 \author{Pierre Samuel}
@@ -565,7 +557,6 @@ x = d(u^{2}-v^{2})\quad y = 2duv\quad z = d(u^{2}+v^{2})
 \end{gather}
 \end{theorem}
 
-\begin{proof}
 Un c\'alculo f\'acil muestra que las f\'ormulas~\eqref{eq-1.2-2} dan soluciones
 de $x^{2}+y^{2}=z^{2}$.
 Rec\'iprocamente, sean $x$, $y$, $z$ enteros $\geq 1$ tales que $x^{2}+y^{2}=z^{2}$. Dividiendo
@@ -595,13 +586,11 @@ o bien en $x'$ o bien en $z'$. Se tiene por lo tanto que $z+x = 2u^{2}$, $z-x = 
 $y^{2} = 2u^{2}\cdot 2v^{2}$, de donde $x = u^{2}-v^{2}$, $y=2uv$, $z=u^{2}+v^{2}$. Aqu\'i,
 $u$ y $v$ son coprimos, pues sino $x$, $y$, $z$ tendr\'ian un factor primo en com\'un. Las
 f\'ormulas~\eqref{eq-1.2-2} se deducen multiplicando de nuevo el m.c.d. por $d$. %\QED
-\end{proof}
 
 \begin{theorem}\label{teo2.2.2}
 La ecuaci\'on $x^{4}+y^{4}=z^{2}$ no tiene soluciones en n\'umeros enteros $x, y, z \geq 1$.
 \end{theorem}
 
-\begin{proof}
 Razonemos por el absurdo. Se tiene entonces una soluci\'on $(x,y,z)$ donde $z$ es {\em minimal.}
 En este caso, $x$, $y$ y $z$ son coprimos dos a dos. En efecto, si, por ejemplo, $x$ e $y$ tuvieran
 un factor primo en com\'un $p$, entonces $p^{4}$ dividir\'ia a $z^{2}$, por lo que $p^{2}$ dividir\'ia
@@ -634,7 +623,6 @@ a^{2} = x'^{4}+y'^{4}
 que tiene {\em la misma forma} que la ecuaci\'on original. Por otra parte, se tiene, por~\eqref{eq-1.2-5},
 $z = u^{2}+v^{2} = a^{4}+4b^{4} > a^{4}$, de donde $z > a$, lo que contradice el caracter minimal
 de $z$. El teorema est\'a demostrado.
-\end{proof}
 
 \begin{comm}
 Una ligera variante de nuestra demostraci\'on muestra como, dada una soluci\'on $(x,y,z)$
@@ -647,9 +635,7 @@ que es un absurdo. Este es el m\'etodo de {\em descenso infinito} de Fermat.
 La ecuaci\'on $x^{4}+y^{4}=z^{4}$ no admite soluciones enteras $x,y,z\geq 1$.
 \end{corollary*}
 
-\begin{proof}
 En efecto, esta ecuaci\'on puede escribirse $x^{4}+y^{4}=(z^{2})^{2}$ y podemos aplicar el teorema~\ref{teo2.2.2}.
-\end{proof}
 
 \section{Algunos lemas sobre ideales; la funci\'on $\varphi$ de Euler}\label{sec1.3}
 
@@ -678,7 +664,6 @@ de generadores de $\ZZ/n\ZZ$ y tambi\'en igual al n\'umero de elementos inversib
 anillo $\ZZ/n\ZZ$.
 \end{proposition}
 
-\begin{proof}
 Recordemos que cada clase de congruencia mod $n\ZZ$ contiene un \'unico entero $q$ tal que
 $0\leq q\leq n-1$. Para un tal entero $q$, notemos $\oline q$ su clase mod $n\ZZ$.
 Razonando ``en c\'irculo'', basta demostrar las implicaciones: $q$ coprimo con $n$ \then $\oline q$ inversible
@@ -698,7 +683,6 @@ Finalmente, si $\oline q$ genera $\ZZ/n\ZZ$, existe un entero
 $x$ tal que $x\cdot\oline q = \oline 1$. Luego, tal que $xq\equiv 1\pmod n$. Es decir,
 existe un entero $y$ tal que $xq-1=yn$, de donde $1 = xq-yn$. Esta es una identidad de Bezout
 que muestra que $q$ es coprimo con $n$.%\QED
-\end{proof}
 
 \begin{lemma}\label{lem1.3.1}
 Sean $A$ un anillo, $\idl{a}$ y $\idl{b}$ dos ideal de $A$ tales que $\idl{a}+\idl{b}=A$.
@@ -712,7 +696,6 @@ Recordemos que el homomorfismo $\varphi$ le hace corresponder a cada $x\in A$ el
 por la clase de $x\bmod\idl{a}$ y la clase de $y\bmod\idl{b}$.
 \end{comm}
 
-\begin{proof}
 En general, se tiene que $\idl{a}\idl{b}\subset\idl{a}$ y $\idl{a}\idl{b}\subset\idl{b}$, de
 donde $\idl{a}\idl{b}\subset\idl{a}\cap\idl{b}$. Sea ahora $x\in\idl{a}\cap\idl{b}$.
 Como $\idl{a}+\idl{b}=A$, existen elementos $a\in\idl{a}$ y $b\in\idl{b}$ tales
@@ -738,7 +721,6 @@ elegirse arbitrariamente. Sean $y$ y $z$ dos representantes de tales clases. Exi
 $x\in\idl{a}$ y $b\in\idl{b}$ tales que $a+b=1$. Definimos $x = az+by$. Modulo $\idl{a}$,
 se tiene $x\equiv by\equiv (1-a)y\equiv y-ay\equiv y$; intercambiando $x$ e $y$, deducimos
 que $x\equiv z\bmod\idl{b}$. \QED
-\end{proof}
 
 \begin{lemma}\label{lem1.3.2}
 Sean $A$ un anillo y $(\idl{a}_{i})_{1\leq i\leq r}$ una colecci\'on finita de ideales de $A$
@@ -746,7 +728,6 @@ tal que $\idl{a}_{i}+\idl{a}_{j} = A$ si $i\neq j$. Se tiene entonces un isomorf
 de $A/\idl{a}_{1}\cdots\idl{a}_{r}$ sobre $\prod_{i=1}^{r}A/\idl{a}_{i}$.
 \end{lemma}
 
-\begin{proof}
 El lema~\ref{lem1.3.1} es el caso $r=2$ del lema~\ref{lem1.3.2}. Procedemos por induci\'on en $r$ a partir de este
 caso. Sea $\idl{b} = \idl{a}_{2}\cdots\idl{a}_{r}$ y mostremos que $\idl{a}_{1}+\idl{b}=A$.
 En efecto, si $i\geq 2$, tenemos $\idl{a}_{1}+\idl{a}_{i} = A$ por lo que existen
@@ -762,7 +743,6 @@ Por la hip\'otesis inductiva, se tiene un isomorfismo
 A/\idl{b} = A/\idl{a}_{2}\cdots\idl{a}_{r}\sim (A/\idl{a}_{2})\times\dots\times(A/\idl{a}_{r}).
 \end{gather*}
 Componiendo estos isomorfismos se obtiene el resultado. \QED
-\end{proof}
 
 Ahora aplicamos estos resultados al anillo $\ZZ$:
 
@@ -771,24 +751,20 @@ Sean $n$ y $n'$ dos enteros coprimos. Entonces el anillo $\ZZ/nn'\ZZ$ es isomorf
 producto $\ZZ/n\ZZ\times\ZZ/n'\ZZ$.
 \end{proposition}
 
-\begin{proof}
 Este es un caso particular del lema~\ref{lem1.3.2}, ya que la hip\'otesis $n\ZZ+n'\ZZ=\ZZ$
 no es otra cosa que la identidad de Bezout.
-\end{proof}
 
 \begin{corollary}\label{coro1.3.1}
 Si $n$ y $n'$ son dos enteros $\geq 1$ coprimos, se tiene que
 $\varphi(nn') = \varphi(n)\varphi(n')$.
 \end{corollary}
 
-\begin{proof}
 En efecto, $\varphi(nn')$ es el n\'umero de elementos inversibles del anillo $\ZZ/nn'\ZZ$
 (proposici\'on~\ref{prop1.3.1}), que es isomorfo a $\ZZ/n\ZZ\times\ZZ/n'\ZZ$. Ahora
 bien, un elemento
 $(\alpha,\beta)$ de un anillo producto es inversible si y s\'olo si cada uno de sus componentes
 $\alpha$ y $\beta$ es inversible. Aplicando la proposici\'on~\ref{prop1.3.1} se
 obtiene el resultado.
-\end{proof}
 
 \begin{corollary}
 Sea $n$ un entero $\geq 1$ y $n = p_{1}^{\alpha_{1}}\dots p_{r}^{\alpha_{r}}$ su
@@ -797,13 +773,11 @@ en factores primos. Entonces
 $\varphi(n) = n\left(1-\frac{1}{p_{1}}\right)\dots\left(1-\frac{1}{p_{r}}\right)$.
 \end{corollary}
 
-\begin{proof}
 Por el corolario~\ref{coro1.3.1}, se tiene
 $\varphi(n) = \varphi(p_{1}^{\alpha_{1}})\dots\varphi(p_{r}^{\alpha_{r}})$.
 Por~\eqref{eq-1.3-2}, se tiene $\varphi(p_{i}^{\alpha_{i}}) = p_{i}^{\alpha_{i}-1}(p_{i}-1)
 =p_{i}^{\alpha_{i}}\left(1-\frac{1}{p_{i}}\right)$. Multiplicando obtenemos
 la f\'ormula deseada.
-\end{proof}
 
 \section{Algunos preliminares sobre m\'odulos}\label{sec1.4}
 
@@ -883,7 +857,6 @@ todo $n\geq n_{0}$);
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
 Mostremos que a) implica c). Sea $E$ un subm\'odulo de $M$ y
 sea $\Phi$ la familia de subm\'odulos de tipo finito de $E$.
 $\Phi$ no es vac\'ia pues $\{0\}\in\Phi$. Por a), $\Phi$ admite
@@ -921,7 +894,6 @@ elementos de $T$ se estaciona.
 \end{enumerate}
 \end{lemma}
 
-\begin{proof}
 {\itshape a}) \then{ \itshape b}): Sea $t_{q}$ un elemento maximal de la sucesi\'on
 creciente $(t_{n})$. Si $n\geq q$ tenemos $t_{n}\geq t_{q}$
 (la sucesi\'on es creciente), luego $t_{n} = t_{q}$ (el elemento
@@ -937,21 +909,17 @@ la sucesi\'on $(t_{n})_{n\geq 0}$ por $t_{n+1}=f(t_{n})$.
 Esta sucesi\'on es estrictamente creciente, luego no se estaciona.
 De esta manera, hemos demostrado la implicaci\'on b) \then a)
 por el contrapositivo. \QED
-\end{proof}
-\end{proof}
 
 \begin{named}{Corolario del teorema 1}
 En un dominio de ideales principales $A$ toda familia no vac\'ia
 de ideales admite un elemento maximal.
 \end{named}
 
-\begin{proof}
 En efecto, si consideramos a $A$ como un m\'odulo sobre si
 mismo, sus subm\'odulos son precisamente sus ideales. Como estos
 son todos principales, son $A$-m\'odulos generados por un
 s\'olo elemento, luego son de tipo finito. Podemos aplicar
 entonces la implicaci\'on c) \then a) del teorema~\ref{teo1.4.1}.
-\end{proof}
 
 \section{M\'odulos sobre dominios de ideales principales}\label{sec1.5}
 
@@ -977,7 +945,6 @@ $a_{i}$ divide a $a_{i+1}$ para todo $1\leq i\leq q-1$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
 Como el teorema es trivial si $M' = \{0\}$, podemos suponer que $M' \neq \{0\}$.
 Sea $L(M,A)$ el conjunto de formas lineales de $M$. Si $u\in L(M,A)$, $u(M')$
 es un sub-$A$-m\'odulo de $A$, es decir un ideal de $A$. Podemos escribir $u(M') = Aa_{u}$
@@ -1032,7 +999,6 @@ forma lineal en $M$ definida por $v(e_{1}) = v(e_{2}) = 1$, $v(e_{i}) = 0$ para 
 Se tiene $a_{1} = a_{u} = v(a_{u}e_{1}) = v(e')\in v(M')$, de donde $Aa_{u}\subset v(M')$.
 Por la maximalidad de $Aa_{u}$ se deduce que $v(M') = Aa_{u} = Aa_{1}$; como $a_{2} = v(a_{2}e_{2})
 \in v(M')$, se tiene que $a_{2}\in Aa_{1}$, es decir, $a_{1}\mid a_{2}$. \QED
-\end{proof}
 
 \begin{comm}
 Los ideales $Aa_{i}$ del Teorema~\ref{teo1.5.1} se llaman {\em factores
@@ -1049,7 +1015,6 @@ tales que $\idl{a}_{1}\supset\idl{a}_{2}\supset\dots\supset
 \idl{a}_{n}$.
 \end{corollary}
 
-\begin{proof}
 Sea, en efecto, $(x_{1},\dots,x_{n})$ un sistema de generadores de $E$. Por lo visto
 al comienzo de \S\ref{sec1.4}, se tiene un homomorfismo sobreyectivo $\varphi:A^{n}\to E$, de manera
 que $E$ es isomorfo a $A^{n}/\Ker(\varphi)$. Por el teorema~\ref{teo1.5.1},
@@ -1059,7 +1024,6 @@ $(a_{1}e_{1},\dots,a_{q}e_{q})$ es una base de $\Ker(\varphi)$ y $a_{i}$ divide 
 todo $1\leq i\leq q-1$. Definimos $a_{p} = 0$ si $q+1\leq p\leq n$. Luego $A^{n}/\Ker(\varphi)$
 es isomorfo al producto de los $Ae_{i}/Aa_{i}e_{i}$ ($1\leq i\leq n$) y $Ae_{i}/Aa_{i}e_{i}$
 es isomorfo a $A/Aa_{i}$. Poniendo $\idl{a}_{i} = Aa_{i}$, se obtiene el resultado. \QED
-\end{proof}
 
 Diremos que un m\'odulo $E$ sobre un dominio \'integro $A$ es
 {\em libre de torsi\'on} si la relaci\'on $ax = 0$
@@ -1070,7 +1034,6 @@ Todo m\'odulo $E$ libre de torsion y de tipo finito
 sobre un dominio de ideales principales es libre.
 \end{corollary}
 
-\begin{proof}
 Aplicamos el corolario~\ref{cor1.5.1}: $E \sim (A/\idl{a}_{1})\times\dots
 \times (A/\idl{a}_{n})$. Suprimiendo los factores nulos, podemos
 suponer que $\idl{a}_{i}\neq A$ para todo $i$. Si $\idl{a}_{1}\neq(0)$,
@@ -1080,7 +1043,6 @@ $x = (x_{1},0,\dots,0)$, se sigue que $ax = 0$, lo que contradice
 el hecho de que $E$ es libre de torsi\'on. Luego,
 $\idl{a}_{1} = (0)$, $\idl{a}_{i} = (0)$ para todo $i$ (pues
 $\idl{a}_{i}\subset\idl{a}_{1}$) y $E$ es isomorfo a $A^{n}$.
-\end{proof}
 
 \begin{comm}
 La hip\'otesis de que $E$ es de tipo finito es imprescindible:
@@ -1095,20 +1057,17 @@ $M_{i}$, donde cada $M_{i}$ es igual a $A$ o a un cociente
 $A/Ap^{s}$ con $p$ primo.
 \end{corollary}
 
-\begin{proof}
 Utilizamos el corolario~\ref{cor1.5.1}, y descomponemos cada factor
 $A/Aa$ con $a\neq 0$ mediante \S\ref{sec1.3}, lema~\ref{lem1.3.2}: si
 $a = up_{1}^{s_{1}}\dots p_{r}^{s_{r}}$ es la
 descomposici\'on en factores primos de $a$, $A/Aa$ es
 isomorfo al producto de los $A/Ap_{i}^{s_{i}}$.
-\end{proof}
 
 \begin{corollary}\label{cor1.5.4}
 Sea $G$ un grupo conmutative finito. Existe $x\in G$ tal que
 su orden el el m.c.m. de los \'ordenes de los elementos de $G$.
 \end{corollary}
 
-\begin{proof}
 Un grupo conmutativo es un $\ZZ$-m\'odulo (si lo escribimos
 aditivamente). Por el corolario~\ref{cor1.5.1}, tenemos $G \simeq
 \ZZ/a_{1}\ZZ\times\dots\times\ZZ/a_{n}\ZZ$ con
@@ -1119,7 +1078,6 @@ El orden de $x$ es evidentemente $a_{n}$. Si $z = (z_{1},\dots,z_{n})\in G$,
 tenemos $a_{n}z = 0$ pues $a_{i}$ divide $a_{n}$ para todo $i$.
 Luego, $a_{n}$ es un m\'ultiplo del orden de $z$. Por lo tanto, el
 elemento buscado es $x$.
-\end{proof}
 
 \section{Ra\'ices de la unidad en un cuerpo}\label{sec1.6}
 
@@ -1129,7 +1087,6 @@ multiplicativo $K^{\times}$ consiste de ra\'ices de la unidad y
 es c\'iclico.
 \end{theorem}
 
-\begin{proof}
 En efecto, por el corolario~\ref{cor1.5.4} al teorema~\ref{teo1.5.1}
 de la \S\ref{sec1.5}, existe $z\in G$ cuyo orden $n$ es tal que $y^{n}=1$
 para todo $y\in G$. Como un polinomio de grado $n$ sobre un cuerpo
@@ -1138,7 +1095,6 @@ cuerpo, el n\'umero de elementos de $G$ es a lo sumo $n$.
 Pero, como $z$ es de orden $n$, $G$ contiene los $n$ elementos
 $z, z^{2},\dots,z^{n}=1$, que son todos distintos. Luego, $G$
 consiste de estos elementos y es c\'iclico.% \QED
-\end{proof}
 
 Si un cuerpo $K$ contiene $n$ ra\'ices $n$-\'esimas de la unidad,
 \'estas forman un grupo c\'iclico de orden $n$ (isomorfo a
@@ -1181,13 +1137,11 @@ $px = 0$ para todo $x\in K$ y $(x+y)^{p} = x^{p}+y^{p}$ para
 todo $x, y\in K$.
 \end{proposition}
 
-\begin{proof}
 Si $x\in K$, se tiene $p\cdot x = (p\cdot 1)\cdot x = 0\cdot x = 0$. Por otra parte,
 de la f\'ormula del binomio, se tiene $(x+y)^{p} = x^{p}+y^{p}+\sum_{j=1}^{p-1}\binom{p}{j}x^{j}y^{p-j}$;
 el coeficiente binomial $\binom{p}{j}$ es el entero $\frac{p!}{j!(p-j)!}$. Como el n\'umero primo
 $p$ aparece como factor en el numerador y no aparece en el denominador, $\binom{p}{j}$ es m\'ultiplo
 de $p$ para $1\leq j\leq p-1$. Luego el t\'ermino correspondiente es nulo.
-\end{proof}
 
 Por inducci\'on en $n$ se tiene $(x+y)^{p^{n}}=x^{p^{n}}+y^{p^{n}}$ para todo $n\geq 0$.
 
@@ -1201,13 +1155,11 @@ dimensi\'on finita $s$ sobre $\FF_{p}$ y se tiene $q = p^{s}$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
 Efectivamente, como $\ZZ$ es infinito, $K$ no puede ser de caracter\'istica $0$. Por lo tanto,
 $K$ contiene $\FF_{p}$ para alg\'un primo $p$. Por lo tanto $K$ es un espacio vectorial sobre
 $\FF_{p}$. Su dimensi\'on $s$ es finita pues sino $K$ ser\'ia infinito. Como espacio vectorial,
 $K$ es isomorfo a $(\FF_{p})^{s}$, luego tiene $p^{s}$ elementos. La parte b) se sigue del
 teorema~\ref{teo1.6.1} de la \S\ref{sec1.6}. La parte c) es inmediata.
-\end{proof}
 
 \begin{example*}
 Apliquemos b) a $\FF_{p}$, donde $p$ es primo: existe un entero $x\in\ZZ$ tal que $0\leq x\leq p-1$ y tal
@@ -1244,7 +1196,6 @@ en una variable sobre $K$ son cuerpos $C_{j+1}$ (\cite{Lang}). Por mucho tiempo 
 cuerpos $p$-\'adicos eran $C_{2}$, pero recientemente se demostr\'o que esto no es as\'i (\cite{Terjanian}).
 \end{comm}
 
-\begin{proof}
 Demostremos el teorema~\ref{teo1.7.2}. Sea $q$ el cardinal de $K$ y $p$ su caracter\'istica (de forma que
 $q = p^{s}$). Sea $V\subset K^{n}$ el conjunto de ceros de $F$, i.e. los puntos $(x_{1},\dots,x_{n})\in K^{n}$
 tales que $F(x) = 0$ (de ahora en m\'as, utilizamos la notaci\'on vectorial en la cual $x$ denota
@@ -1286,7 +1237,6 @@ es, en ese caso, $\geq (q-1)n$. Pero, como $G = F^{q-1}$, $G$ tiene grado $(q-1)
 $(q-1)d < (q-1)n$ por hip\'otesis. Por lo tanto, se tiene que $\sum_{x\in K^{n}}M_{\alpha}(x) = 0$ para todo
 monomio que figura en $G$ con un coeficiente no nulo. Sumando, resulta que $\sum_{x\in K^{n}}G(x) = 0$. Ya vimos
 que esta relaci\'on implica la conclusi\'on deseada.
-\end{proof}
 
 \begin{comm}
 Observemos que en vez de suponer que $F$ es homog\'eneo, es suficiente suponer que $F$ no tiene t\'ermino constante.
@@ -1349,7 +1299,6 @@ de tipo finito.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
 Mostremos que {\itshape a}) implica {\itshape b}). Sea $M$ el sub-$A$-m\'odulo de $R$ generado por $1, x, \dots, x^{n-1}$.
 Por {\itshape a}) se tiene $x^{n}\in M$. Mostremos que $x^{n+j}\in M$ haciendo inducci\'on en $j$. En efecto,
 multiplicando~\eqref{eq-2.1-1} por $x^{j}$ se obtiene $x^{n+j}=-a_{n-1}x^{n+j-1}-\dots-a_{0}x^{j}$.
@@ -1376,7 +1325,6 @@ d = \det(\delta_{ij}x - a_{ij}),
 obtenemos una ecuaci\'on de la forma $P(x) = 0$ con $P$ un polinomio de grado $n$ sobre $A$. Este polinomio
 es m\'onico pues el coeficiente de $x^{n}$ proviene \'unicamente del producto $\prod_{i=1}^{n}(x-a_{ii})$
 de los elementos de la diagonal principal. Por lo tanto {\itshape a}) es verdad.
-\end{proof}
 
 \begin{definition}\label{def2.1.1}
 Sea $R$ un anillo y $A$ un subanillo de $R$. Un elemento $x$ de $R$ se dice entero sobre $A$ si satisface
@@ -1397,7 +1345,6 @@ de $R$. Si, para todo $i$, $x_{i}$ es entero sobre $A[x_{1},\dots,x_{i-1}]$ (en 
 $x_{i}$ son enteros sobre $A$), entonces $A[x_{1},\dots,x_{n}]$ es un $A$-m\'odulo de tipo finito.
 \end{proposition}
 
-\begin{proof}
 Razonemos por inducci\'on en $n$. Si $n=1$, se trata de la afirmaci\'on {\itshape b}) del teorema~\ref{teo2.1.1}. Supongamos que la
 proposici\'on es verdad para $n-1$. Entonces $B = A[x_{1},\dots,x_{n-1}]$ es un $A$-m\'odulo de tipo finito
 y podemos escribir $B = \sum_{j=1}^{p}Ab_{j}$. Aplicando el caso $n=1$ se sigue que $A[x_{1},\dots,x_{n}]
@@ -1407,29 +1354,24 @@ A[x_{1},\dots,x_{n}] = \sum_{k=1}^{q}Bc_{k} = \sum_{k=1}^{q}\left(\sum_{j=1}^{p}
 Ab_{j}c_{k},
 \end{gather*}
 de manera que $(b_{j}c_{k})$ es un sistema finito de generadores del $A$-m\'odulo $A[x_{1},\dots,x_{n}]$.
-\end{proof}
 
 \begin{corollary}\label{cor2.1.1}
 Sea $R$ un anillo, $A$ un subanillo de $R$, $x$ e $y$ dos elementos de $R$ enteros sobre $A$. Entonces
 $x+y$, $x-y$ y $xy$ son enteros sobre $A$.
 \end{corollary}
 
-\begin{proof}
 En efecto, se tiene que $x+y, x-y, xy\in A[x,y]$. Por la proposici\'on~\ref{prop2.1.1},
 $A[x,y]$ es un $A$-m\'odulo
 de tipo finito; luego, por la parte {\itshape c}) del teorema~\ref{teo2.1.1},
 $x+y$, $x-y$ y $xy$ son enteros sobre $A$.
-\end{proof}
 
 \begin{corollary}\label{cor2.1.2}
 Sea $R$ un anillo y $A$ un subanillo de $R$. El conjunto $A'$ de elementos de $R$ enteros sobre $A$
 es un subanillo de $R$ que contiene a $A$.
 \end{corollary}
 
-\begin{proof}
 Efectivamente, $A'$ es un subanillo de $R$ por el corolario~\ref{cor2.1.1}; contiene a $A$ pues todo $a\in A$ es
 ra\'iz del polinomio m\'onico $X-a$ y por lo tanto es entero.
-\end{proof}
 
 \begin{definition}
 Sea $R$ un anillo, $A$ un subanillo de $R$. El anillo $A'$ de los elementos de $R$ enteros sobre $A$ se
@@ -1445,7 +1387,6 @@ Sea $C$ un anillo, $B$ un subanillo de $C$ y $A$ un subanillo de $B$. Si $B$ es 
 entero sobre $B$, entonces $C$ es entero sobre $A$.
 \end{proposition}
 
-\begin{proof}
 En efecto, sea $x\in C$; $x$ es entero sobre $B$ y por lo tanto se tiene una ecuaci\'on de dependencia entera
 $x^{n}+b_{n-1}x^{n-1}+\dots+b_{0} = 0$ con $b_{i}\in B$. Sea $B' = A[b_{0},\dots,b_{n-1}]$, de manera que $x$
 tambi\'en es entero sobre $B'$. Como $B$ es entero sobre $A$, los $b_{i}$ son enteros sobre
@@ -1453,14 +1394,12 @@ $A$. Por lo tanto, por la proposici\'on~\ref{prop2.1.1},
 $B'[x] = A[b_{0},\dots,b_{n-1},x]$ es un $A$-m\'odulo de tipo finito. Por la parte
 {\itshape c}) del teorema~\ref{teo2.1.1}
 concluimos que $x$ es entero sobre $A$. Por lo tanto $C$ es entero sobre $A$.
-\end{proof}
 
 \begin{proposition}\label{prop2.1.3}
 Sea $B$ un dominio \'integro y $A$ un subanillo de $B$ tal que $B$ es entero sobre $A$. Para que $B$ sea
 un cuerpo es necesario y suficiente que $A$ lo sea.
 \end{proposition}
 
-\begin{proof}
 Supongamos que $A$ es un cuerpo y sea $b\in B$, $b\neq 0$. Luego $A[b]$ es un espacio vectorial de
 dimension {\em finita} sobre $A$ (teorema~\ref{teo2.1.1}, {\itshape b})).
 Por otra parte, $y\mapsto by$ es una aplicaci\'on
@@ -1476,7 +1415,6 @@ a^{-n}+a_{n-1}a^{-n+1}+\dots+a_{1}a^{-1}+a_{0} =0\quad(a_{i}\in A)
 \end{gather*}
 Multiplicando por $a^{n-1}$, obtenemos $a^{-1}=-(a_{n-1}+\dots+a_{1}a^{n-2}+a_{0}a^{n-1})$, de donde
 $a^{-1}\in A$, de manera que $A$ es un cuerpo.
-\end{proof}
 
 \section{Anillos \'integramente cerrados}\label{sec2.2}
 
@@ -1563,7 +1501,6 @@ $M$ es una extensi\'on algebraica de $L$. M\'as a\'un, $[M:K] = [M:L][L:K]$
 (``multiplicatividad del grado'').
 \end{proposition}
 
-\begin{proof}
 La primera afirmaci\'on es un caso particular de la proposici\'on~\ref{prop2.1.2} de la \S\ref{sec2.1}.
 M\'as a\'un, si $(x_{i})_{i\in I}$
 es una base de $L$ sobre $K$ y $(y_{j})_{j\in J}$ es una base de $M$ sobre $L$, entonces $(x_{i}y_{j})_{(i,j)\in I\times J}$
@@ -1574,7 +1511,6 @@ $\sum_{j}\left(\sum_{i}a_{ij}x_{i}\right)y_{j} = 0$, de donde se sigue que
 $\sum_{i}a_{ij}x_{i} = 0$ para todo $j$ (pues
 $\sum a_{ij}x_{i}\in L$) y en consecuencia que $a_{ij} = 0$ para todo $i$, $j$. Esto demuestra la f\'ormula
 de la multiplicatividad del grado.
-\end{proof}
 
 \begin{proposition}
 Sea $R$ un anillo y $K$ un subcuerpo de $R$. Entonces
@@ -1584,10 +1520,8 @@ Sea $R$ un anillo y $K$ un subcuerpo de $R$. Entonces
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}
 En efecto, {\itshape a}) es un caso particular del corolario~\ref{cor2.1.2} de la proposici\'on~\ref{prop2.1.1}, \S\ref{sec2.1}
 y {\itshape b}) resulta de la proposici\'on~\ref{prop2.1.3} de \S\ref{sec2.1}.
-\end{proof}
 
 Ahora estudiaremos m\'as de cerca los elementos algebraicos sobre un cuerpo. Sea $R$ un anillo, $K$ un subcuerpo
 de $R$ y $x$ un elemento de $R$. Existe un \'unico homomorfismo $\varphi$ del anillo de polinomios $K[X]$ en
@@ -1626,7 +1560,6 @@ Sea $K$ un cuerpo y $P(X)\in K[X]$ un polinomio no constante. Existe una extensi
 grado finito tal que $P(X)$ se descompone en factores lineales en $K'[X]$.
 \end{proposition}
 
-\begin{proof}
 Razonamos por inducci\'on sobre el grado $d$ de $P(X)$. El resultado es evidente si $d=1$. Supongamos que el enunciado est\'a
 demostrado para grados no mayores a $d-1$.
 
@@ -1637,7 +1570,6 @@ De la hip\'otesis inductiva se sigue que $P_{1}(X)$ se descompone en factores li
 $K'$ de $K''$ de grado finito. Luego $K'$ es una extensi\'on de grado finito de $K$
 (proposici\'on~\ref{prop2.3.1}) y
 $P(X)$ se descompone en factores lineales en $K'[X]$.
-\end{proof}
 
 \begin{remark*}[cuerpos algebraicamente cerrados]
 Decimos que $K$ es {\em algebraicamente cerrado}
@@ -1682,7 +1614,6 @@ $K'$ de $K$ (\S\ref{sec2.3}, proposici\'on~\ref{prop2.3.3}). Entonces
 las $n$ ra\'ices $x_{1},\dots,x_{n}$ de $F(X)$ son todas distintas.
 \end{lemma*}
 
-\begin{proof}
 Razonemos por el absurdo. En el caso contrario, $F(X)$ admite una ra\'iz \emph{m\'ultiple} $x$, que
 tendr\'ia que ser entonces tambi\'en ra\'iz del polinomio derivado $F'(X)$, en cuyo caso $F(X)$
 dividir\'ia a $F'(X)$ (\eqref{eq-2.3-4}, \S\ref{sec2.3}). Como $d^{\circ}F' < d^{\circ}F$, esto implica que $F'(X)$ es el
@@ -1708,7 +1639,6 @@ proposici\'on~\ref{prop1.7.1}) y $F(X)$ no es irreducible. Por otra parte, si $K
 ($\neq 0$), la aplicaci\'on $x\mapsto x^{p}$ de $K$ en $K$ es inyectiva (pues
 $x^{p}=y^{p}$ implica $x^{p}-y^{p} = (x-y)^{p} = 0$ y $x-y=0$). Por lo tanto tambi\'en es sobreyectiva
 pues $K$ es finito. Hemos obtenido una una contradicci\'on.
-\end{proof}
 
 \begin{comm}
 Los cuerpos $K$ de caracter\'istica $p\neq 0$ tales que $x\mapsto x^{p}$ es sobreyectiva
@@ -1725,7 +1655,6 @@ y $C$ un cuerpo algebraicamente cerrado que contiene a $K$. Entonces existen $n$
 de $K'$ en $C$.
 \end{theorem}
 
-\begin{proof}
 El resultado es cierto para una extensi\'on {\em unigenerada} $K'$, es decir de la forma $K' = K[x]$
 ($x\in K$). En este caso el polinomio minimal $F(X)$ de $x$ sobre $K$ tiene grado $n$ y admite
 $n$ ra\'ices $x_{1},\dots, x_{n}$ en $C$ que son distinas por el lema anterior. Para cada $i=1,\dots,n$ se
@@ -1746,7 +1675,6 @@ $q\cdot\frac{n}{q} = n$ $K$-isomorfismos deseados de $K'$ en $C$. Son distintos 
 $\theta_{ij}\circ\tau_{i}$ y $\theta_{i'j'}\circ\tau_{i'}$ son distintos cuando se los restringe a
 $K[x]$ si $i\neq i'$ y si $j\neq j'$ entonces $\theta_{ij}$ y $\theta_{i'j'}$ son distintos cuando
 se los restringe a $K'_{i}$. \QED
-\end{proof}
 
 \begin{comm}
 El teorema~\ref{teo2.4.1} se extiende a un cuerpo perfecto $K$: puede demostrarse que
@@ -1760,7 +1688,6 @@ Sea $K$ un cuerpo finito o de caracter\'istica cero y sea $K'$ una extension de 
 Existe entonces un elemento $x$ en $K'$ (llamado ``primitivo'') tal que $K' = K[x]$.
 \end{corollary*}
 
-\begin{proof}
 Si $K$ es finito, $K'$ es finito y su grupo multiplicativo $K'^{*}$ consiste en las potencias de un
 mismo elemento $x$ (cap\'itulo~\ref{cap1}, \S\ref{sec1.7}, teorema~\ref{teo1.7.1}, {\itshape b})). Entonces se tiene $K' = K[x]$.
 
@@ -1776,7 +1703,6 @@ Sea $x$ en el complemento de dicha uni\'on. Los $\sigma_{i}(x)$ son entonces
 distintos dos a dos, de manera que el polinomio minimal $F(X)$ de $x$ sobre $K$ tiene al menos
 $n$ ra\'ices distintas (los $\sigma_{i}(x)$) en $C$. Tenemos por lo tanto que $d^{\circ}F\geq n$,
 es decir que $[K[x]:K]\geq n$. Como $K[x]\subset K'$ y $[K':K]=n$ deducimos que $K' = K[x]$. \QED
-\end{proof}
 
 \section{Enteros de un cuerpo cuadr\'atico}\label{sec2.5}
 
@@ -1932,7 +1858,6 @@ polinomio minimal de $x$
 sobre $K$.
 \end{comm}
 
-\begin{proof}
 Tratemos primero el caso cuando $x$ es un {\em elemento primitivo} de $L$ sobre $K$
 (cf. \S\ref{sec2.4}, corolario del teorema~\ref{teo2.4.1}).
 Sea $F(X)$ el polinomio minimal de $x$ sobre $K$. Entonces $L$ es $K$-isomorfo a
@@ -1991,7 +1916,6 @@ Como la matriz $X\cdot I-M_{1}$ es una matriz diagonal por bloques de la forma $
 $\det(X\cdot I_{n}-M_{1}) = (\det(X\cdot I_{q}-M))^{r}$. Como el miembro de la izquierda es $P(X)$
 y $\det(X\cdot I_{q}-M)$ es el polinomio minimal de $x$ sobre $K$ por lo demostrado en la primera parte,
 la proposici\'on queda demostrada. \QED
-\end{proof}
 
 Para terminar, veamos un resultado sobre la traza y la norma de elementos enteros.
 
@@ -2002,7 +1926,6 @@ coeficientes del polinomio caracter\'istico $P(X)$ de $x$ respecto a $L$ y $K$ (
 y $N_{L/K}(x)$), son enteros sobre $A$.
 \end{proposition}
 
-\begin{proof}
 Utilizamos la proposici\'on~\ref{prop2.6.1}: se tiene $P(X) = (X-x_{1})\cdots(X-x_{n})$. Los coeficientes de $P(X)$ son, salvo
 el signo, sumas de productos de los $x_{i}$. Basta demostrar que los $x_{i}$ son enteros sobre $A$
 (\S\ref{sec2.1}, corolario~\ref{cor2.1.1} de la proposici\'on~\ref{prop2.1.1}).
@@ -2010,16 +1933,13 @@ Como cada $x_{i}$ es conjugado con $x$ sobre $K$ (\S\ref{sec2.4}), se tienen
 $K$-isomorfismos $\sigma_{i}:K[x]\to K[x_{i}]$ tales que $\sigma_{i}(x) = x_{i}$. Aplicando $\sigma_{i}$
 a una ecuaci\'on de dependencia entera de $x$ sobre $A$, se obtiene una ecuaci\'on de dependencia
 entera de $x_{i}$ sobre $A$.
-\end{proof}
 
 \begin{corollary*}
 Supongamos adem\'as que $A$ es \'integramente cerrado. Entonces los coeficientes del polinomio caracter\'istico
 de $x$ (en particular $\Tr_{L/K}(x)$ y $N_{L/K}(x)$) pertenecen a $A$.
 \end{corollary*}
 
-\begin{proof}
 En efecto, los coeficientes son elementos de $K$ por definici\'on y son enteros sobre $A$ por la proposici\'on~\ref{prop2.6.2}.
-\end{proof}
 
 \begin{comm}
 Observemos que las cantidades $x+\sigma(x)$ y $x\cdot\sigma(x)$ que utilizamos en el estudio de los
@@ -2046,12 +1966,10 @@ D(y_{1},\dots,y_{n}) = \det(a_{ij})^{2}D(x_{1},\dots,x_{n}).
 \end{gather}
 \end{proposition}
 
-\begin{proof}
 En efecto, se tiene $\Tr(y_{p}y_{q}) = \Tr\left(\sum_{i,j}a_{pi}a_{qj}x_{i}x_{j}\right) = \sum_{i,j}a_{pi}a_{qj}
 \Tr(x_{i}y_{j})$, de donde se sigue la igualdad de matrices
 $(\Tr(y_{p}y_{q})) = (a_{pi})\cdot(\Tr(x_{i}x_{j}))\cdot{}^{t}(a_{qj})$ (donde ${}^{t}M$ denota le transpuesta de la
 matriz $M$). Para terminar basta tomar determinantes en esta igualdad. \QED
-\end{proof}
 
 Se sigue de la proposici\'on~\ref{prop2.7.1} que los discriminantes de dos bases cualesquiera de $B$ sobre $A$ son {\em asociados}
 en $A$: en efecto, la matriz de cambio de base $(a_{ij})$ es inversible por lo que su determinante es inveresible.
@@ -2068,7 +1986,6 @@ $(x_{1},\dots,x_{n})\in B^{n}$ sea una base de $B$ sobre $A$ es necesario y sufc
 generado por $D(x_{1},\dots,x_{n})$.
 \end{proposition}
 
-\begin{proof}
 La necesidad fue demostrada m\'as arriba. Supongamos que $d = D(x_{1},\dots,x_{n})$ genera
 $\disc_{B/A}$. Sea $(e_{1},\dots,e_{n})$ une base cualquiera de $B$ sobre $A$.
 Escribamos $d' = D(e_{1},\dots,e_{n})$ y $x_{i} = \sum_{j=1}^{n}a_{ij}e_{j}$ con $a_{ij}\in A$. Se tiene
@@ -2077,7 +1994,6 @@ $d' = bd$, de donde $d(1-b\det(a_{ij})^{2}) = 0$. Se sigue que $d$ no puede ser 
 todo los elementos de $Ad = \disc_{B/A}$ ser\'ian divisores de cero. Por lo tanto, deducimos que
 $1-b\det(a_{ij})^{2} = 0$, lo que muestra que $\det(a_{ij})$ es inversible y por lo tanto tambi\'en lo es
 la matriz $(a_{ij})$. En consecuencia, $(x_{1},\dots,x_{n})$ es una base de $B$ sobre $A$.
-\end{proof}
 
 \begin{proposition}\label{prop2.7.3}
 Sea $K$ un cuerpo finito o de caracter\'istica cero, $L$ une extensi\'on de $K$ de grado finito $n$ y
@@ -2088,7 +2004,6 @@ D(x_{1},\dots,x_{n}) = \det(\sigma_{i}(x_{j}))^{2}\neq 0.
 \end{gather}
 \end{proposition}
 
-\begin{proof}
 La primera igualdad resulta de un c\'alculo f\'acil:
 \begin{align*}
 D(x_{1},\dots,x_{n}) &= \det(\Tr(x_{i}x_{j})) = \det\left(\sum_{k}\sigma_{k}(x_{i}y_{j})\right)
@@ -2107,7 +2022,6 @@ multiplicativo $C^{*}$. Entonces los $\sigma_{i}$ son linealmente independientes
 $\sum_{i}u_{i}\sigma_{i}(g) = 0$ para todo $g\in G$ implica que todos los $u_{i}$ son nulos{\upshape).}
 \end{named}
 
-\begin{proof}
 Supongamos que los $\sigma_{i}$ son linealmente dependientes y consideremos una relaci\'on no trivial
 $\sum_{i}u_{i}\sigma_{i} = 0$ ($u_{i}\in C$) tal que el n\'umero $q$ de los $u_{i}$ no nulos sea {\em
 m\'inimo.} Renumerando si es necesario, podemos suponer que
@@ -2126,8 +2040,6 @@ u_{2}(\sigma_{1}(h)-\sigma_{2}(h))\sigma_{1}(g)+\dots+u_{q}(\sigma_{1}(h)-\sigma
 Como esta ecuaci\'on vale para todo $g\in G$ y $q$ se eligi\'o m\'inimo, se sigue que
 $u_{2}(\sigma_{1}(h)-\sigma_{2}(h)) = 0$, de donde $\sigma_{1}(h) = \sigma_{2}(h)$ pues $u_{2}\neq 0$.
 Esto contradice la hip\'otesis de que $\sigma_{i}$ son distintos. \QED
-\end{proof}
-\end{proof}
 
 \begin{remark*}
 En las condiciones de la proposici\'on~\ref{prop2.7.3}, la relaci\'on $D(x_{1},\dots,x_{n})\neq 0$ significa que
@@ -2150,7 +2062,6 @@ finito $n$ y $A'$ la clausura \'integra de $A$ en $L$. Supongamos que $K$ es de 
 Entonces $A'$ es un sub-$A$-m\'odulo  de un $A$-m\'odulo libre de rango $n$.
 \end{theorem}
 
-\begin{proof}
 Sea $(x_{1},\dots,x_{n})$ una base de $L$ sobre $K$. Cada $x_{i}$ es algebraico sobre $K$, por lo que se tiene
 $a_{n}x_{i}^{n}+a_{n-1}x_{i}^{n-1}+\dots+a_{0}$ con $a_{j}\in A$ para $j=0,\dots,n$. Multiplicando por
 una potencia de $x_{i}$ podemos suponer que $a_{n}\neq 0$. Multiplicando por $a_{n}^{n-1}$ vemos que $a_{n}x_{i}$
@@ -2167,19 +2078,16 @@ proposici\'on~\ref{prop2.6.2}). Como
 \end{gather*}
 se sigue que $b_{i}\in A$ para todo $i$. Por lo tanto $A'$ est\'a contenido en el $A$-m\'odulo libre
 $\sum_{j=1}^{n}Ay_{j}$. \QED
-\end{proof}
 
 \begin{corollary*}
 Bajo las hip\'otesis del teorema~\ref{teo2.7.1}, supongamos adem\'as que $A$ es un dominio de ideales principales. Entonces
 $A'$ es un $A$-m\'odulo libre de rango $n$.
 \end{corollary*}
 
-\begin{proof}
 En efecto, en este caso un subm\'odulo de un $A$-m\'odulo libre es de nuevo libre
 (cap\'itulo~\ref{cap1}, \S\ref{sec1.5}, teorema~\ref{teo1.5.1}, {\itshape b}))
 y de rango $\leq n$. Por otra parte, vimos en la demostraci\'on del teorema~\ref{teo2.7.1} que $A'$ contiene una base de $L$ sobre
 $K$ y por lo tanto es de rango $n$.
-\end{proof}
 
 \begin{comm}
 A modo de ejercicio, el lector que no est\'e familiarizado con el contenido de la observaci\'on que
@@ -2263,7 +2171,6 @@ un elemento de $A[X]$ tal que $p$ divide a todos los $a_{i}$ ($0\leq i\leq n-1${
 divide a $a_{0}$. Entonces $F(X)$ es irreducible sobre el cuerpo de fracciones $K$ de $A$.
 \end{named}
 
-\begin{proof}
 Supongamos en efecto que se tiene $F = G\cdot H$ con $G, H\in K[X]$, $G$ y $H$ {\em m\'onicos.} Las
 ra\'ices de $F$ son {\em enteras} sobre $A$. Como todas las ra\'ices de $G$ (resp. $H$) son ra\'ices de $F$, \'estas
 son todas enteras sobre $A$ (\S\ref{sec2.1}, corolario~\ref{cor2.1.1} de la proposici\'on~\ref{prop2.1.1}). Como $A$ es un dominio de ideales principales, y por
@@ -2277,7 +2184,6 @@ $\oline G = X^{q}$ y $\oline H = X^{n-q}$. Si $G$ y $H$ son ambos no constantes,
 $p$ divide los t\'erminos constantes de $G$ y $H$ y por lo tanto $p^{2}$ divide al t\'ermino constante
 $a_{0}$ de $F$, lo que contradice la hip\'otesis. Por lo tanto, o bien $G$ o bien $H$ es constante y por
 lo tanto $F$ es irreducible. \QED
-\end{proof}
 
 \begin{example*}
 El polinomio $X^{3}-2X+6$ es irreducible sobre $\QQ$ (tomar $p=2$, $A=\ZZ$).
@@ -2288,7 +2194,6 @@ Para todo n\'umero primo $p$, el polinomio ciclot\'omico $X^{p-1}+X^{p-2}+\dots+
 en $\QQ[X]$.
 \end{theorem}
 
-\begin{proof}
 En efecto, pongamos $X = Y+1$. Se tiene
 \begin{align*}
 X^{p-1}+\dots+1 = \frac{X^{p}-1}{X-1} &= \frac{(Y+1)^{p}-1}{Y}\\
@@ -2297,7 +2202,6 @@ X^{p-1}+\dots+1 = \frac{X^{p}-1}{X-1} &= \frac{(Y+1)^{p}-1}{Y}\\
 Como $p$ divide a todos los coeficientes binomiales $\binom{p}{j}$ pero $p^{2}$ no divide al
 t\'ermino constante $\binom{p}{1} = p$, $F_{1}(Y)$ es irreducible por el criterio de Eisenstein y
 por lo tanto tambi\'en lo es el polinomio ciclot\'omico. \QED
-\end{proof}
 
 Seguimos denotando por $z$ una ra\'iz $p$-\'esima primitiva de la unidad. Resulta del
 teorema~\ref{teo2.9.1} que el cuerpo
@@ -2357,7 +2261,6 @@ anillo $A$ de enteros del cuerpo ciclot\'omico $\QQ[z]$ es $\ZZ[z]$ y $(1,z,\dot
 del $\ZZ$-m\'odulo $A$.
 \end{theorem}
 
-\begin{proof}
 En efecto, sea $x = a_{0}+a_{1}z+\dots+a_{p-2}z^{p-2}$ ($a_{i}\in\QQ$) un elemento de $A$. Entonces
 se tiene
 \begin{gather*}
@@ -2371,7 +2274,6 @@ de donde, utilizando~\eqref{eq-2.9-5}, $pa_{0}\in p\ZZ$ y por lo tanto $a_{0}\in
 $z^{-1}=z^{p-1}$ se sigue que $z^{-1}\in A$, de donde $(x-a_{0})z^{-1}=a_{1}+a_{2}z+\dots+a_{p-2}z^{p-3}\in A$.
 Aplicando la primer parte del argumento a este elemento deducimos que $a_{1}\in\ZZ$. Aplicando sucesivamente
 este procedimiento, vemos que todos los $a_{i}\in\ZZ$. \QED
-\end{proof}
 
 \begin{remark*}
 Lo que hicimios en esta \S{} se extiende sin dificultad a cuerpos ciclot\'omicos $\QQ[t]$ donde $t$ es una
@@ -2422,7 +2324,6 @@ Finalmente, tenemos el
 El cuerpo de los n\'umeros complejos es algebraicamente cerrado.
 \end{theorem*}
 
-\begin{proof}
 Demostraremos la parte (b), que todo polinomio no constante $P(X)\in\CC[X]$ admite una ra\'iz en
 $\CC$. Considerando $F(X) = P(X)\oline P(X)$ ($\oline P$: el polinomio cuyos coeficientes son los
 conjugados complejos de los coeficientes correspondientes de $P$) podemos suponer que $P(X)$ tiene
@@ -2454,7 +2355,6 @@ Restando esta ecuaci\'on de la an\'aloga con $c$ se deduce que $x_{r}+x_{s}\in\C
 Luego, por 4), $x_{r}$ y $x_{s}$ son ra\'ices de una ecuaci\'on de segundo grado con coeficientes
 en $\CC$. Como $\CC\subset K'$, se tiene que $x_{r},x_{s}\in\CC$ por 2). As\'i, hemos demostrado que
 $F(X)$ posee una ra\'iz en $\CC$ y el teorema est\'a demostrado.
-\end{proof}
 
 \begin{comm}
 La demostraci\'on dada parece apropiada para un curso opcional o de primer ciclo, y tambi\'en
@@ -2499,7 +2399,6 @@ Sea $A$ un anillo, $E$ un $A$-m\'odulo y $E'$ un subm\'odulo de $E$. Para que $E
 noetheriano es necesario y suficiente que $E'$ y $E/E'$ sean noetherianos.
 \end{proposition}
 
-\begin{proof}
 Demostremos la necesidad. Supongamos que $E$ es noetheriano. El conjunto ordenado de los
 subm\'odulos de $E'$ (resp. $E/E'$) es isomorfo al conjunto ordenado de los subm\'odulos de $E$
 contenidos en $E'$ (resp. conteniendo $E'$). Por lo tanto, $E'$ y $E/E'$ son noetherianos por {\itshape a})
@@ -2518,29 +2417,24 @@ Como $F_{n+1}+E' = F_{n}+E'$, existen $y\in F_{n}$ y $z',z''\in E'$ tales que
 $x+z' = y+z''$. Luego, $x-y = z''-z'\in F_{n+1}\cap E'$. Como $F_{n+1}\cap E' = F_{n}\cap E'$,
 se tiene $x-y\in F_{n}$, de donde $x\in F_{n}$ pues $y\in F_{n}$. As\'i $F_{n+1} = F_{n}$ para
 todo $n\geq \sup(n_{0},n_{1})$ y $E$ es noetheriano por {\itshape b}).
-\end{proof}
 
 \begin{corollary}\label{cor3.1.1}
 Sea $A$ un anillo, $E_{1},\dots,E_{n}$ $A$-m\'odulos noetherianos. Entonces el $A$-m\'odulo
 producto $\prod_{i=1}^{n}E_{i}$ es noetheriano.
 \end{corollary}
 
-\begin{proof}
 Si $n=2$, $E_{1}$ se identifica con el subm\'odulo $E_{1}\times(0)$ de $E_{1}\times E_{2}$ y el
 cociente correspondiente es isomorfo a $E_{2}$, por lo que el resultado se sigue en este caso
 de la proposici\'on~\ref{prop3.1.1}. El caso general se deduce haciendo inducci\'on en $n$.
-\end{proof}
 
 \begin{corollary}\label{cor3.1.2}
 Sea $A$ un anillo noetheriano y $E$ un $A$-m\'odulo de tipo finito. Entonces $E$ es un
 $A$-m\'odulo noetheriano {\upshape(}y por lo tanto todo subm\'odulo es de tipo finito{\upshape).}
 \end{corollary}
 
-\begin{proof}
 En efecto (cap\'itulo~\ref{cap1}, \S\ref{sec1.4}), $E$ es isomorfo a un m\'odulo cociente $A^{n}/R$ (donde
 $n$ es el cardinal de un sistema finito de generadores de $E$). Como $A^{n}$ es noetheriano
 por el corolario~\ref{cor3.1.1}, $A^{n}/R$ tambi\'en lo es por la proposici\'on~\ref{prop3.1.1}.
-\end{proof}
 
 \section{Aplicaci\'on a los elementos enteros}\label{sec3.2}
 
@@ -2551,13 +2445,11 @@ $L$. Supongamos que $K$ es de caracter\'istica cero. Entonce $A'$ es un $A$-m\'o
 y un anillo noetheriano.
 \end{proposition}
 
-\begin{proof}
 En efecto, sabemos que $A'$ es un subm\'odulo de un $A$-m\'odulo libre de rango $n$
 (cap\'itulo~\ref{cap2}, \S\ref{sec2.7}, teorema~\ref{teo2.7.1}). Por lo tanto, $A'$ es un $A$-m\'odulo de tipo finito
 (\S\ref{sec3.1}, corolario~\ref{cor3.1.2} de la proposici\'on~\ref{prop3.1.1}) y por lo tanto noetheriano (ibid). Por otra parte los ideales
 de $A'$ son casos particulares de sub-$A$-m\'odulos de $A'$. Por lo tanto satisfacen la condici\'on
 de maximalidad (\S\ref{sec3.1}, teorema~\ref{teo3.1.1}, {\itshape a}) de manera que $A'$ es un anillo noetheriano.
-\end{proof}
 
 \begin{example*}
 El anillo de los enteros de un cuerpo de n\'umeros $L$ es {\em noetheriano} (poner $A = \ZZ$,
@@ -2582,11 +2474,9 @@ Sea $A$ un anillo, $\idl{p}$ un ideal primo de $A$ y $A'$ un subanillo de $A$. E
 $p\cap A'$ es un ideal primo de $A'$.
 \end{lemma}
 
-\begin{proof}
 En efecto, $\idl{p}\cap A'$ es el n\'ucleo del homomorfismo compuesto $A'\to A\to A/\idl{p}$,
 de manera que se tiene un homomorfismo inyectivo $A'/\idl{p}\cap A'\to A/\idl{p}$. Como un
 subanillo de un dominio \'integro es un dominio \'integro, el resultado est\'a demostrado.
-\end{proof}
 
 Dados dos ideales $\idl{a}$ y $\idl{b}$ de un anillo $A$, llamamos {\em producto} de $\idl{a}$
 y $\idl{b}$, y lo notamos $\idl{a}\idl{b}$, no s\'olamente al conjunto de los productos
@@ -2613,18 +2503,15 @@ Si un ideal primo $\idl{p}$ de un anillo $A$ contiene un producto de ideales
 $\idl{a}_{1}\idl{a}_{2}\cdots\idl{a}_{n}$, entonces $\idl{p}$ contiene uno de ellos.
 \end{lemma}
 
-\begin{proof}
 En efecto, si $\idl{a}_{i}\not\subset\idl{p}$ para todo $i$, existe $a_{i}\in\idl{a}_{i}$ tal que
 $a_{i}\notin\idl{p}$. Se tiene entonces que $a_{1}\cdots a_{n}\notin\idl{p}$ pues $\idl{p}$
 es primo. Pero tambi\'en $a_{1}\cdots a_{n}\in\idl{a}_{1}\cdots\idl{a}_{n}$. Contradicci\'on.
-\end{proof}
 
 \begin{lemma}\label{lem3.3.3}
 En un anillo noetheriano, todo ideal contiene un producto de ideales primos. En un dominio \'integro noetheriano
 $A$, todo ideal no nulo contiene un producto de ideales primos no nulos.
 \end{lemma}
 
-\begin{proof}
 Utilizaremos un argumento t\'ipico de la teor\'ia de anillos noetherianos. Demostremos la segunda
 afirmaci\'on (la demostraci\'on de la primera es an\'aloga: simplemente hay que borrar tres
 veces ``no nulos''). Razonemos por el absurdo. Entonces la familia $\Phi$ de ideales no nulos de $A$ que
@@ -2644,7 +2531,6 @@ Como $xy\in\idl{b}$, se tiene que
 \idl{q}_{r}\subset\idl{b},
 \end{gather*}
 lo que es una contradicci\'on.
-\end{proof}
 
 Sea ahora $A$ un {\em dominio \'integro} y $K$ su cuerpo de fracciones. Llamamos {\em ideal fraccionario} de $A$
 (o de $K$ respecto a $A$) a todo sub-$A$-m\'odulo $I$ de $K$ tal que existe $d\in A$, $d\neq 0$ que satisface
@@ -2685,7 +2571,6 @@ $A'$ la clausura \'integra de $A$ en $L$. Supongamos que $K$ tiene caracter\'ist
 $A'$ es un anillo de Dedekind y un $A$-m\'odulo de tipo finito.
 \end{theorem}
 
-\begin{proof}
 En efecto, $A'$ es \'integramente cerrado por construcci\'on, noetheriano y $A$-m\'odulo de tipo finito
 por la proposici\'on de \S\ref{sec3.2}. Resta demostrar que todo idel primo $\idl{p}'\neq(0)$ de $A'$ es maximal. Tomemos
 un elemento $x\neq 0$ de $\idl{p}'$ y consideremos una ecuaci\'on de dependencia entera de $x$ sobre $A$ de
@@ -2700,7 +2585,6 @@ es un ideal maximal de $A$, y $A/\idl{p'}\cap A$ es un cuerpo. Pero $A/\idl{p}'\
 subanillo de $A'/\idl{p}'$ y $A'/\idl{p'}$ es {\em entero} sobre $A/\idl{p}'\cap A$ pues $A'$ es entero
 sobre $A$. Luego, $A'/\idl{p}'$ es un cuerpo (cap\'itulo~\ref{cap2}, \S\ref{sec2.1}, proposici\'on~\ref{prop2.1.3}), de manera que $\idl{p}'$
 es maximal. \QED
-\end{proof}
 
 El interes en los anillos de Dedekind proviene de que el anillo de enteros de un cuerpo de n\'umeros es un
 anillo de Dedekind pero no siempre un dominio de ideales principales.
@@ -2736,7 +2620,6 @@ Sea $A$ un anillo de Dedekind que no es un cuerpo. Todo ideal maximal de $A$ es 
 ideales fraccionarios de $A$.
 \end{theorem}
 
-\begin{proof}
 Sea $\idl{m}$ un ideal maximal de $A$. Se tiene $\idl{m}\neq(0)$ pues $A$ no es un cuerpo. Sea
 \begin{gather}\label{eq-3.4-3}
 \idl{m}' = \{x\in K\mid x\idl{m}\subset A\}
@@ -2766,7 +2649,6 @@ que $Aa\supset\idl{m}\idl{b}$, pero $Aa\not\supset\idl{b}$ pues $n$ es minimal. 
 $b\in\idl{b}$ tal que $b\notin Aa$. Como $\idl{m}\idl{b}\subset Aa$, se tiene $\idl{m}b\subset Aa$, de donde
 $\idl{m}ba^{-1}\subset A$. La definici\'on~\eqref{eq-3.4-3} de $\idl{m}'$ implica que $ba^{-1}\in\idl{m}'$. Pero como
 $b\notin Aa$, se sigue que $ba^{-1}\notin A$ y por lo tanto $\idl{m}'\neq A$. \QED
-\end{proof}
 
 \begin{theorem}\label{teo3.4.3}
 Sea $A$ un anillo de Dedekind, $P$ el conjunto de ideales primos no nulos de $A$.
@@ -2780,7 +2662,6 @@ donde los $n_{\idl{p}}(\idl{b})$ son n\'umeros enteros, casi todos nulos.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
 Demostremos primero la afirmaci\'on de {\em existencia} de {\itshape a}), es decir que todo ideal fraccionario
 $\idl{b}$ es producto de potencias ($\geq 0$ o $\leq 0$) de ideles primos. Sabemos que existe un
 elemento no nulo de $A$ tal que $d\idl{b}\subset A$, i.e. tal que $d\idl{b}$ es un ideal entero de $A$.
@@ -2814,7 +2695,6 @@ es una contradicci\'on.
 
 Por \'ultimo,~\eqref{eq-3.4-4} muestra que $\prod_{\idl{p}\in P}\idl{p}^{-n_{\idl{p}}(\idl{b})}$ es el inverso
 de $\idl{b}$, lo que demuestra {\itshape b}).
-\end{proof}
 
 \begin{remark*}
 Acabamos de ver que el monoide $I(A)$ de ideales fraccionarios no nulos de un anillo de Dedekind $A$
@@ -2864,7 +2744,6 @@ proposici\'on~\ref{prop2.6.2}), de manera que
 la f\'ormula anterior tiene sentido.
 \end{comm}
 
-\begin{proof}
 Sabemos que $A$ es un $\ZZ$-m\'odulo libre de rango $n$ (cap\'itulo~\ref{cap2}, \S\ref{sec2.8}) y $Ax$ es un
 sub-$\ZZ$-m\'odulo de $A$. Tambi\'en es de rango $n$ pues la multiplicaci\'on por $x$
 es un isomorfismo $A\to Ax$. Por lo visto en el cap\'itulo~\ref{cap1}, \S\ref{sec1.5}, teorema~\ref{teo1.5.1}, existe una base
@@ -2880,7 +2759,6 @@ se tiene que $\det(v)=\pm 1$. Pero entonces $v\circ u$ no es otra cosa que multi
 y su determinante es, por definici\'on, $N(x)$ (cap\'itulo~\ref{cap2}, \S\ref{sec2.6},
 definici\'on~\ref{def2.6.1}). Como $\det(v\circ u)=
 \det(v)\cdot\det(u)$, deducimos que $N(x) = \pm c_{1}c_{2}\cdots c_{n}=\pm \card(A/Ax)$.% \QED
-\end{proof}
 
 \begin{definition}\label{def3.5.1}
 Dado un ideal entero no nulo $\idl{a}$ de $A$, llamamos norma de $\idl{a}$, y notamos $N(\idl{a})$,
@@ -2897,7 +2775,6 @@ Si $\idl{a}$ y $\idl{b}$ son dos ideales enteros no nulos de $A$, se tiene
 $N(\idl{a}\idl{b}) = N(\idl{a})N(\idl{b})$.
 \end{proposition}
 
-\begin{proof}
 Descomponiendo $\idl{b}$ en un producto de ideales maximales (\S\ref{sec3.4}, teorema~\ref{teo3.4.3}), vemos que
 basta demostrar que se tiene $N(\idl{a}\idl{m}) = N(\idl{a})N(\idl{m})$ para $\idl{m}$ maximal.
 Como $\idl{a}\idl{m}\subset\idl{a}$, tenemos $\card(A/\idl{a}\idl{m}) =
@@ -2910,7 +2787,6 @@ muestra que no hay
 ning\'un ideal contenido estrictamente entre $\idl{a}\idl{m}$ y $\idl{a}$. Luego el espacio vectorial
 $\idl{a}/\idl{a}\idl{m}$ es de dimensi\'on uno sobre $A/\idl{m}$ y se tiene en consecuencia que
 $\card(\idl{a}/\idl{a}\idl{m}) = \card(A/\idl{m})$. \QED
-\end{proof}
 
 \chapter{Clases de ideales y el teorema de las unidades}\label{cap4}
 
@@ -2929,7 +2805,6 @@ Sea $H$ un subgrupo discreto de $\RR^{n}$. Entonces $H$ est\'a generado {\upshap
 $r$ vectores linealmente independientes sobre $\RR$ {\upshape(}en particular, $r\leq n${\upshape).}
 \end{theorem}
 
-\begin{proof}
 Elijamos, en efecto, un sistema $(e_{1},\dots,e_{r})$ de elementos de $H$ que sean linealmente independientes
 sobre $\RR$ y tal que $r$ sea m\'aximo. Sea
 \begin{gather}
@@ -2968,7 +2843,6 @@ son, al igual que los $(e_{i})$, linealmente independientes sobre $\RR$, vemos q
 y por lo tanto
 tambi\'en $H$, est\'a generado (sobre $\ZZ$) por $r$ elementos linealmente independientes
 sobre $\RR$.
-\end{proof}
 
 \begin{remark*}[Ejemplo de aplicaci\'on]
 Sea $t = (\theta_{1},\dots,\theta_{n})\in\RR^{n}$ tal que alguno de
@@ -3014,7 +2888,6 @@ su medida (que nosotros llamaremos tambi\'en su vol\'umen).
 El vol\'umen $\mu(P_{e})$ es independiente de la base $e$ elegida.
 \end{lemma}
 
-\begin{proof}
 En efecto, sea $(f_{1},\dots,f_{n})$ otra base de $H$. Se tiene
 $f_{i} = \sum_{j=1}^{n}\alpha_{ij}e_{j}$
 para algunos $\alpha_{ij}\in\ZZ$. Es bien sabido el efecto de una transformaci\'on lineal
@@ -3028,7 +2901,6 @@ El vol\'umen de uno cualquiera de los $P_{e}$ se llama el {\em vol\'umen del ret
 y se nota
 $v(H)$ (la palabra ``vol\'umen'' aqu\'i es un abuso del lenguaje, pues $\mu(H) = 0$. ?`Tal
 vez ser\'ia mejor decir ``malla'' del reticulado $H$?).
-\end{proof}
 
 \begin{theorem}[Minkowski]\label{teo4.1.2}
 Sea $H$ un reticulado de $\RR^{n}$ y $S$ un subconjunto medible de $\RR^{n}$ tal
@@ -3036,7 +2908,6 @@ que $\mu(S) > v(H)$. Entonces existen
 dos elementos distintos $x$, $y$ de $S$ tales que $x-y\in H$.
 \end{theorem}
 
-\begin{proof}
 En efecto, sea $e = (e_{1},\dots,e_{n})$ una $\ZZ$-base de $H$ y $P_{e}$ el
 paralep\'ipedo semi-abierto construido
 con $e$. Como $P_{e}$ es un dominio fundamental para $H$, $S$ es la uni\'on disjunta de
@@ -3058,7 +2929,6 @@ $P_{e}\cap (-h+S)\cap (-h'+S)\neq\emptyset$.
 Por lo tanto se tienen dos elementos $x$, $y$ de $S$ tales que $-h+x=-h'+y$, de donde
 $x-y=h-h'\in H$ y
 $x\neq y$ pues $h\neq h'$. \QED
-\end{proof}
 
 \begin{corollary*}
 Sea $H$ un reticulado de $\RR^{n}$, $S$ un subconjunto medible, sim\'etrico respecto a
@@ -3071,7 +2941,6 @@ Supongamos que una de las siguientes condiciones es verdad:
 Entonces $S\cap H$ contiene un punto distinto a $0$.
 \end{corollary*}
 
-\begin{proof}
 En el caso a), aplicamos el teorema~\ref{teo4.1.1} a
 \begin{gather*}
 S'=\frac{1}{2}S\quad\left(\text{pues }\mu(S')=\frac{1}{2^{n}}\mu(S)>v(H)\right);
@@ -3083,7 +2952,6 @@ $(1+\varepsilon)S)$ ($\varepsilon > 0$). Poniendo $H' = H-\{0\}$, vemos que
 $H'\cap (1+\varepsilon)S$ es no vac\'io, y es finito pues es compacto y discreto. Entonces
 $\bigcap_{\varepsilon>0}H'\cap (1+\varepsilon)S$ es no vac\'io. Un elemento de esta intersecci\'on pertenece
 a $\bigcap_{\varepsilon>0}(1+\varepsilon)S$, conjunto que es igual a $S$ pues $S$ es compact. \QED
-\end{proof}
 
 \begin{comm}
 La hip\'otesis de compacidad es necesaria en b), como lo muestra el paralep\'ipedo abierto
@@ -3122,7 +2990,6 @@ v(\sigma(M)) = 2^{-r_{2}}\abs{\det_{1\leq i,j\leq n}(\sigma_{i}(x_{j}))}
 \end{gather}
 \end{proposition}
 
-\begin{proof}
 En efecto, para $i$ fijo, las coordenadas de $\sigma(x_{i})$ respecto a la base can\'onica de $\RR^{n}$ est\'an
 dadas por
 \begin{gather}\label{eq-4.2-4}
@@ -3138,7 +3005,6 @@ y por lo tanto $D\neq 0$. Por lo tanto los vectores $\sigma(x_{i})$ son linealme
 independientes en $\RR^{n}$, de manera que el $\ZZ$-m\'odulo que general (es decir, $\sigma(M)$) es un
 reticulado de $\RR^{n}$. El c\'alculo de $D$ que acabamos de hacer muestra que su vol\'umen est\'a dado
 por~\eqref{eq-4.2-3}.
-\end{proof}
 
 \begin{proposition}\label{prop4.2.2}
 Sea $d$ el discriminante absoluto de $K$, $A$ su anillo de enteros y $\idl{a}$ un ideal entero no nulo de $A$.
@@ -3148,7 +3014,6 @@ v(\sigma(A)) = 2^{-r_{2}}\abs{d}^{1/2}\quad v(\sigma(\idl{a})) = 2^{-r_{2}}\abs{
 \end{gather}
 \end{proposition}
 
-\begin{proof}
 En efecto, sabemos que $A$ y $\idl{a}$ son $\ZZ$-m\'odulos libres de rango $n$, de manera que podemos aplicar
 la proposici\'on~\ref{prop4.2.1}.
 Por otra parte, si $(x_{i})$ es una $\ZZ$-base de $A$, se tiene
@@ -3159,7 +3024,6 @@ $\sigma(\idl{a})$ es un subgrupo de $\sigma(A)$ de \'indice $N(\idl{a})$
 (cap\'itulo~\ref{cap3}, \S\ref{sec3.5}, definici\'on~\ref{def3.5.1}) y que por
 lo tanto un dominio fundamental para $\sigma(\idl{a})$ se obtiene como uni\'on disjunta de $N(\idl{a})$ copias
 de un dominio fundamental de $\sigma(A)$.
-\end{proof}
 
 \section{Finitud del grupo de clases de ideales}\label{sec4.3}
 
@@ -3172,7 +3036,6 @@ contiene un elemento no nulo $x$ tal que
 \end{gather}
 \end{proposition}
 
-\begin{proof}
 En efecto, sea $\sigma$ la inmersi\'on can\'onica de $K$ en $\RR^{r_{1}}\times\CC^{r_{2}}$ (\S\ref{sec4.2}).
 Sea $t$ un n\'umero real $>0$ y $B_{t}$ el conjunto de aquellos
 \begin{gather*}
@@ -3193,7 +3056,7 @@ Elijamos $t$ tal que $\mu(B_{t}) = 2^{n}v(\sigma(\idl{a}))$, es decir tal que
 \end{gather*}
 (\S\ref{sec4.2}, proposici\'on~\ref{prop4.2.2}) o, equivalentemente, $t^{n} = 2^{n-r_{1}}\pi^{-r_{2}}n!\abs{d}^{1/2}N(\idl{a})$.
 Por el corolario del teorema~\ref{teo4.1.2}, \S\ref{sec4.1},
-existe un elemento $x$ de $\idl{a}$ no nulo tal que $\sigma(x)\in B_{t}$. 
+existe un elemento $x$ de $\idl{a}$ no nulo tal que $\sigma(x)\in B_{t}$.
 Ahora estimemos la norma $\abs{N(x)} = \prod_{i=1}^{r_{1}}\abs{\sigma_{i}(x)}\prod_{j=r_{1}+1}^{r_{1}+r_{2}}\abs{\sigma_{j}(x)}^{2}$.
 La desigualdad de la media geom\'etrica muestra que se tiene
 \begin{gather*}
@@ -3202,7 +3065,6 @@ La desigualdad de la media geom\'etrica muestra que se tiene
 \end{gather*}
 de donde $\abs{N(x)}\leq\frac{1}{n^{n}}2^{n-r_{1}}\pi^{-r_{2}}n!\abs{d}^{1/2}N(\idl{a})$, lo que es equivalente
 a~\eqref{eq-4.3-1} ya que $r_{1}+2r_{2} = n$. \QED
-\end{proof}
 
 \begin{corollary}\label{cor4.3.1}
 Con la misma notaci\'on que antes, toda clase de ideales de $K$ (cap\'itulo~\ref{cap3}, \S\ref{sec3.4})
@@ -3212,13 +3074,11 @@ N(\idl{b})\leq\left(\frac{4}{\pi}\right)^{r_{2}}\frac{n!}{n^{n}}\abs{d}^{1/2}.
 \end{gather}
 \end{corollary}
 
-\begin{proof}
 En efecto, sea $\idl{a}'$ un ideal perteneciente a la clase dada. Multiplicando por un escalar, podemos suponer
 que $\idl{a} = \idl{a}'^{-1}$ es un ideal entero. Tomemos un elemento $x$ no nulo de $\idl{a}$ tal que~\eqref{eq-4.3-1}
 sea verdad. Entonces $\idl{b} = x\idl{a}^{-1}$ es un ideal entero perteneciente a la clase dada cuya norma
 satisface~\eqref{eq-4.3-4} utilizando la multiplicatividad de las normas (cap\'itulo~\ref{cap3}, \S\ref{sec3.5},
 proposici\'on~\ref{prop3.5.2}).
-\end{proof}
 
 \begin{corollary}\label{cor4.3.2}
 Sea $K$ un cuerpo de n\'umeros, $n$ su grado y $d$ su discriminante absoluto. Entonces si $n\geq 2$, se tiene
@@ -3226,7 +3086,6 @@ $\abs{d}\geq\frac{\pi}{3}\left(\frac{3\pi}{4}\right)^{n-1}$ y $\frac{n}{\log\abs
 constante independiente de $K$.
 \end{corollary}
 
-\begin{proof}
 En efecto, como $N(\idl{b})\geq 1$, se tiene $\abs{d}^{1/2}\geq\left(\frac{\pi}{4}\right)^{r_{2}}\frac{n^{n}}{n!}$.
 Como $\frac{\pi}{4} < 1$ y $2r_{2}\leq n$, se tiene $\abs{d}\geq a_{n}$, donde
 $a_{n} = \left(\frac{\pi}{4}\right)^{r_{2}}\frac{n^{2n}}{(n!)^{2}}$. Ahora bien, se tiene $a_{2} = \frac{\pi^{2}}{4}$
@@ -3234,22 +3093,18 @@ y $\frac{a_{n+1}}{a_{n}} = \frac{\pi}{4}\left(1+\frac{1}{n}\right)^{2n} = \frac{
 \text{ (por la f\'ormula del binomio)} \geq \frac{3\pi}{4}$. De donde $n\geq 2$,
 $\abs{d}\geq\frac{\pi^{2}}{4}\left(\frac{3\pi}{4}\right)^{n-2}$,
 o que implica la desigualdad deseada. La estimaci\'on uniforme de $\frac{n}{\log\abs{d}}$ se sigue tomando logaritmos.
-\end{proof}
 
 \begin{theorem}[Hermite-Minkowski]
 Para todo cuerpo de n\'umeros $K\neq\QQ$, el discriminante absoluto $d$ de $K$ es $\neq\pm 1$.
 \end{theorem}
 
-\begin{proof}
 En efecto, por el corolario~\ref{cor4.3.2}, se tiene $\abs{d}\geq\frac{\pi}{3}\left(\frac{3\pi}{4}\right)^{n-1}$ y
 $\frac{\pi}{3} >1$, $\frac{3\pi}{4} > 1$ de donde se sigue que $\abs{d} > 1$.
-\end{proof}
 
 \begin{theorem}[Dirichlet]\label{teo4.3.2}
 Para todo cuerpo de n\'umeros $K$, el grupo de clases de ideales de $K$ es finito (cap\'itulo~\ref{cap3}, \S\ref{sec3.4}).
 \end{theorem}
 
-\begin{proof}
 En virtud del corolario~\ref{cor4.3.1} de la proposici\'on~\ref{prop4.3.1},
 basta demostrar que el conjunto de ideales enteros $\idl{b}$
 de $K$, cuya norma es un entero dado $q$, es finito. Como para un tal ideal $\idl{b}$ se tiene que
@@ -3258,13 +3113,11 @@ divide al orden del grupo. Por lo tanto los ideales $\idl{b}$ considerados son a
 a $Aq$, y hay un n\'umero finito de estos \'ultimos (cap\'itulo~\ref{cap3}, \S\ref{sec3.4}, f\'ormula~\eqref{eq-3.4-8},
 o bien por la finitud de
 $A/Aq$).% \QED
-\end{proof}
 
 \begin{theorem}[Hermite]\label{teo4.3.3}
 En $\CC$ hay s\'olo un n\'umero finito de cuerpos de n\'umeros de discriminante $d$ dado.
 \end{theorem}
 
-\begin{proof}
 En efecto, por el corolario~\ref{cor4.3.2} de la proposici\'on~\ref{prop4.3.1}, el grado de un tal cuerpo est\'a acotado. Luego podemos suponer
 que $n$, y $r_{1}$ y $r_{2}$ est\'an fijos.
 
@@ -3315,7 +3168,6 @@ s\'olo pueden tomar en este caso un n\'umero finito de valores.
 Por lo tanto, s\'olo hay un n\'umero finito de posibles polinomios minimales de $x$ y en consecuencia
 solamente un n\'umero finito de valores posibles para $x$ en $\CC$. Como $x$ genera $K$, el teorema~\ref{teo4.3.3} queda
 demostrado LQQD.% \QED
-\end{proof}
 
 \section{El teorema de las unidades}\label{sec4.4}
 
@@ -3328,13 +3180,11 @@ Sea $K$ un cuerpo de n\'umeros y $x\in K$. Para que $x$ sea una unidad de $K$ es
 necesario y suficiente que $x$ sea un entero de $K$ de norma $\pm 1$.
 \end{proposition}
 
-\begin{proof}
 En efecto, si $x$ es una unidad de $K$, $N(x)$ y $N(x^{-1})$ son elementos de $\ZZ$ cuyo producto es
 $N(1) = 1$. Luego, $N(x) = \pm 1$. Rec\'iprocamente, sea $x$ un entero de $K$ de norma $\pm 1$. Su
 polinomio caracter\'istico se escribe $x^{n}+a_{n-1}x^{n-1}+\dots+a_{1}x\pm 1= 0$ para algunos
 $a_{0}\in\ZZ$ (cap\'itulo~\ref{cap2}, \S\ref{sec2.6}). Luego $\pm(x^{n-1}+\dots+a_{1})$ es el inverso de $x$ y es un entero de
 $K$, por lo que $x$ es una unidad de $K$.
-\end{proof}
 
 \begin{theorem}[Dirichlet]\label{teo4.4.1}
 Sea $K$ un cuerpo de n\'umeros, $n$ su grado, $r_{1}$ y $r_{2}$ los enteros definidos en \S\ref{sec4.2}
@@ -3342,7 +3192,6 @@ y $r = r_{1}+r_{2}-1$. El grupo $A^{*}$ de las unidades de $K$ es isomorfo a $\Z
 $G$ es un grupo c\'iclico finito, formado por las ra\'ices de la unidad contenidas en $K$.
 \end{theorem}
 
-\begin{proof}
 Probaremos primero que nada que $A^{*}$ es un grupo conmutativo de tipo finito y calcularemos su rango.
 Consdireemos la inmersi\'on can\'onica (\S\ref{sec4.2}) $x\mapsto(\sigma_{1}(x),\dots,\sigma_{r_{1}+r_{2}}(x))$
 de $K$ en $\RR^{r_{1}}\times\CC^{r_{2}}$ y la aplicaci\'on
@@ -3439,7 +3288,6 @@ como $\abs{N(x_{h})}\leq\alpha$, hay un n\'umero finito de los ideales $Ax_{h}$ 
 del teorema~\ref{teo4.3.2}). Luego existen dos \'indices $h$ y $k$ distintos tales que $Ax_{h}=Ax_{k}$ y por lo tanto
 exite una {\em unidad} $u$ de $A$ tal que $x_{k} = ux_{h}$. Por lo tanto (como $f$ es lineal) se tiene que
 $f(L(u)) = f(L(x_{k})) - f(L(x_{h})) \neq 0$, y $u$ es la unidad buscada. \QED
-\end{proof}
 
 \begin{remark*}
 El teorema~\ref{teo4.4.1} (llamado ``teorema de las unidades'') muestra que existen $r$ ($=r_{1}+r_{2}-1$) y unidades $(u_{i})$
@@ -3605,7 +3453,6 @@ de {\em $\ZZ$-m\'odulo} de $G$''. Un subgrupo de un grupo conmutativo de tipo fi
 Observemos primero que nada que $A$ es un anillo {\em noetheriano}
 y que los ideales de $A$ son los sub-$\ZZ$-m\'odulos de $A$.
 
-\begin{proof}
 Primero trataremos el caso donde $A$ es un {\em dominio \'integro.} Si su cuerpo de fracciones $K$ es
 de caracter\'istica cero, es un $\QQ$-espacio vectorial de tipo finito, luego un cuerpo de n\'umeros.
 Por otra parte $A$ es entero sobre $\ZZ$ (pues es un $\ZZ$-m\'odulo de tipo finito,
@@ -3621,14 +3468,12 @@ Pasemos ahora al caso cuando $A$ es {\em reducido} (lo que significa, por defini
 En un anillo noetheriano reducido $A$, el ideal $(0)$ es intersecci\'on finita de ideales primos.
 \end{lemma*}
 
-\begin{proof}
 En efecto, sabemos que en un anillo noetheriano, todo ideal contiene un producto de ideales primos
 (cap\'itulo~\ref{cap3}, \S\ref{sec3.3}, lema~\ref{lem3.3.3}).
 Como $(0)$ es el ideal m\'as peque\~no, debe {\em ser} un producto de ideales primos:
 $(0) = \idl{p}_{1}^{n_{1}}\cdots\idl{p}_{q}^{n_{q}}$. Sea $x\in\idl{p}_{1}\cap\dots\cap\idl{p}_{q}$. Se
 tiene $x^{n_{1}+\dots+n_{q}}\in\idl{p}_{1}^{n_{1}}\cdots\idl{p}_{q}^{n_{q}} = (0)$, de manera que
 $x^{n_{1}+\dots+n_{q}}=0$, de donde $x = 0$ pues $A$ es reducido. Por lo tanto, $(0) = \idl{p}_{1}\cap\dots\cap\idl{p}_{q}$.
-\end{proof}
 
 En res\'umen, $(0) = \idl{p}_{1}\cap\dots\idl{p}_{1}$ con los $\idl{p}_{i}$ ideales primos. Deducimos que
 el homomorfismo can\'onico $\varphi:A\to\prod_{i=1}^{q}A/\idl{p}_{i}$ es inyectivo. Como un elemento de un anillo
@@ -3653,7 +3498,6 @@ $(1+x)(1-x) = 1-x^{2}=1$. S\'olo resta demostrar que el grupo multiplicativo $1+
 Como $(\idl{n}^{s-1})^{2}=(0)$ se tiene $(1+x)(1+y) = 1+x+y$ para $x,y\in\idl{n}^{s-1}$, de manera que
 $x\mapsto 1+x$ es un isomorfismo del grupo aditivo $\idl{n}^{s-1}$ sobre el grupo multiplicativo $1+\idl{n}^{s-1}$.
 Pero, como $A$ es un $\ZZ$-m\'odulo de tipo finito, tambi\'en lo es $\idl{n}^{s-1}$. \QED
-\end{proof}
 
 \begin{comm}
 Utilizando m\'etodos pertenecientes a la Geometr\'ia Algebraica puede demostrarse que para todo anillo
@@ -3675,7 +3519,6 @@ Entonces para la medidad de Lebesgue $\mu$ se tiene $\mu(B_{t})=0$ si $t < 0$ y
 \end{gather}
 \end{proposition*}
 
-\begin{proof}
 Podemos suponer que estamos en el caso $t\geq 0$ pues si $t < 0$ tenemos $B_{t}=\emptyset$ y $\mu(B_{t})=0$.
 Escribimos $\mu(B_{t}) = V(r_{1},r_{2},t)$ y hacemos inducci\'on doble en $r_{1}$ y $r_{2}$. Se tiene
 $V(1,0,t) = 2t$ (segmento $[-t,+t]$) y
@@ -3723,7 +3566,6 @@ Para calcular $\int_{0}^{t/2}(t-2\rho)^{n}\rho\,d\rho$ ponemos $2\rho = x$ e int
 Encontramos que esta integral vale $\frac{t^{n+2}}{4(n+1)(n+2)}$, de donde
 $V(r_{1},r_{2}+1,t) = 2^{r_{1}}\left(\frac{\pi}{2}\right)^{r_{2}+1}\frac{t^{n+2}}{(n+2)!}$, lo que coincide
 con~\eqref{eq-4-ap-2} pues $r_{1}+2(r_{2}+1)=n+2$.
-\end{proof}
 
 \chapter{Descomposici\'on de ideales primos en extensiones}\label{cap5}
 
@@ -3763,7 +3605,6 @@ $\idl{p}\cap S=\emptyset$. La aplicaci\'on inversa es $\idl{p}\mapsto\idl{p}A'$.
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}
 Demostremos 1). Si $\idl{b}'$ es un ideal de $A'$, se tiene $\idl{b}'\cap A\subset\idl{b}'$, de donde
 $(\idl{b}'\cap A)A'\subset\idl{b}'$ pues $\idl{b}'$ es un ideal. Para demostrar la inclusi\'on inversa, sea
 $x\in\idl{b}'$; se tiene $x = \frac{a}{s}$ con $a\in A$ y $s\in S$. Luego $xs\in\idl{b}'$ pues
@@ -3802,17 +3643,14 @@ Ahora bien, las f\'ormulas $\idl{p} = \idl{p}A'\cap A$ y $\idl{p}' = A'(\idl{p}\
 las aplicaciones $\varphi:\idl{p}'\mapsto\idl{p}'\cap A$ y $\theta : \idl{p}\mapsto\idl{p}A$ (MAL EN EL LIBRO?)
 (restrictas a los ideales primos descritos en el enunciado) son dos biyecciones inversas la una de la otra, pues sus
 composiciones en los dos sentidos son la aplicaci\'on identidad. Que son crecientes es evidente. \QED
-\end{proof}
 
 \begin{corollary*}
 Si $A$ es un dominio \'integro noetheriano, todo anillo de fracciones $S^{-1}A$ es noetheriano.
 \end{corollary*}
 
-\begin{proof}
 En efecto, el conjunto de ideales de $S^{-1}A$ se aplica, de manera inyectiva y creciente, en aquel de los
 ideales de $A$ (proposici\'on~\ref{prop5.1.1}, 1).
 Por lo tanto satisface tambi\'en la condici\'on de maximalidad.
-\end{proof}
 
 \begin{proposition}\label{prop5.1.2}
 Sea $R$ un dominio \'integro, $A$ un subanillo de $R$, $S$ una subconjunto multiplicativamente estable de $A$ con
@@ -3820,7 +3658,6 @@ $1\in S$ y $0\notin S$ y $B$ la clausura \'integra de $A$ en $R$. Entonces la cl
 $S^{-1}R$ es $S^{-1}B$.
 \end{proposition}
 
-\begin{proof}
 En efecto, todo elemento de $S^{-1}B$ se escribe en la forma $\frac{b}{s}$ con $b\in B$ y
 $s\in S$. Se tiene una ecuaci\'on de dependencia entera $b^{n}+a_{n-1}b^{n-1}+\dots+a_{0}=0$ con
 $a_{0}=0$. Dividiendo por $s^{n}$ se obtiene $\left(\frac{b}{s}\right)^{n}+\frac{a_{n-1}}{s}\left(\frac{b}{s}\right)^{n-1}
@@ -3830,27 +3667,22 @@ dependencia entera $\left(\frac{x}{s}\right)^{n}+\frac{a_{n-1}}{t_{n-1}}\left(\f
 \dots+\frac{a_{0}}{t_{0}}=0$ ($a_{i}\in A$, $t_{i}\in S$); multiplicando por $(t_{0}t_{1}\cdots t_{n-1})^{n}$
 vemos que $xt_{0}\cdots t_{n-1}/s$ es entero sobre $A$ y por lo tanto un elemento de $B$. As\'i,
 $\frac{x}{s} = \frac{a}{t_{0}\cdots t_{n-1}}\cdot\frac{xt_{0}\cdots t_{n-1}}{s}$ es un elemento de $S^{-1}B$.
-\end{proof}
 
 \begin{corollary*}
 Si $A$ es un anillo \'integramente cerrado, todo anillo de fracciones $S^{-1}A$ tambi\'en es \'integramente
 cerrado.
 \end{corollary*}
 
-\begin{proof}
 En efecto tomamos $R$ el cuerpo de fraccione de $A$ en la proposici\'on anterior.
-\end{proof}
 
 \begin{proposition}\label{prop5.1.3}
 Si $A$ es un anillo de Dedekind, todo anillo de fracciones $S^{-1}A$ es un anillo de Dedekind.
 \end{proposition}
 
-\begin{proof}
 En efecto, $S^{-1}A$ es noetheriano (corolario de la proposici\'on~\ref{prop5.1.1})
 e \'integramente cerrado (corolario de la proposici\'on~\ref{prop5.1.2}). Adem\'as,
 como ``perdemos'' ideales primos al pasar de $A$ a $S^{-1}A$ (proposiciones~\ref{prop5.1.1},~\ref{prop5.1.2}), todo ideal primo no nulo de $S^{-1}A$
 es maximal.
-\end{proof}
 
 \begin{proposition}\label{prop5.1.4}
 Sea $A$ un anillo de Dedekind, $\idl{p}$ un ideal primo no nulo de $A$ y sea $S = A-\idl{p}$. Entonces $S^{-1}A$
@@ -3858,7 +3690,6 @@ es un dominio de ideales principales y existe un elemento primo $p$ de $S^{-1}A$
 ideales no nulos de $S^{-1}A$ son los $(p^{n})_{n\geq 0}$.
 \end{proposition}
 
-\begin{proof}
 En efecto, como $\idl{p}$ es el \'unico ideal primo $\neq(0)$ de $A$ contenido en $\idl{p}$, es decir, disjunto con
 $S$, el \'unico ideal primo no nulo de $S^{-1}A$ es $\idl{P}=\idl{p}S^{-1}A$
 (proposici\'on~\ref{prop5.1.1},~2). Como $S^{-1}A$ es un
@@ -3866,7 +3697,6 @@ anillo de Dedekind (proposici\'on~\ref{prop5.1.3}), sus \'unicos ideales no nulo
 $p\in\idl{P}-\idl{P}^{2}$; el ideal $(p)$ que genera est\'a contenido en $\idl{P}$ y no contiene a $\idl{P}^{2}$,
 por lo que necesariamente $(p) = \idl{P}$. Los \'unicos ideales no nulos de $S^{-1}A$ son as\'i los $(p^{n})$
 y por lo tanto $S^{-1}A$ es un dominio de ideales principales.
-\end{proof}
 
 \begin{proposition}\label{prop5.1.5}
 Sea $A$ un dominio \'integro, $S$ un subconjunto multiplicativamente cerrado de $A$
@@ -3877,7 +3707,6 @@ S^{-1}A/\idl{m}S^{-1}A\simeq A/\idl{m}.
 \end{gather*}
 \end{proposition}
 
-\begin{proof}
 M\'as precisamente el homomorfismo compuesto $A\to S^{-1}A\to S^{-1}A/\idl{m}S^{-1}A$ tiene n\'ucleo
 $\idl{m}S^{-1}A\cap A=\idl{m}$ (proposici\'on~\ref{prop5.1.1},~2)),
 de donde una inyecci\'on $\varphi:A/\idl{m}\to S^{-1}A/\idl{m}S^{-1}A$.
@@ -3885,7 +3714,6 @@ S\'olo resta mostrar que $\varphi$ es sobreyectivo. Sea $x = \frac{a}{s}\in S^{-
 $s\notin\idl{m}$ (se tiene $\idl{m}\cap S=\emptyset$) y como $\idl{m}$ es maximal, $s$ es inversible mod $\idl{m}$
 y existe $b$ tal que $bs\equiv 1\pmod\idl{m}$. Entonces $\frac{a}{s}-ab=\frac{a}{s}(1-bs)\in\idl{m}S^{-1}A$,
 de manera que la imagen por $\varphi$ de la clase de $ab$ es igual a la clase de $\frac{a}{s} = x$. \QED
-\end{proof}
 
 \section{Descomposici\'on de un ideal primo en una extensi\'on}\label{sec5.2}
 
@@ -3905,12 +3733,10 @@ donde los $\idl{P}_{i}$ son ideales primos de $B$, dos a dos distintos, y donde 
 Los $\idl{P}_{i}$ son exactamente los ideales primos $\idl{Q}$ de $B$ tales que $\idl{Q}\cap A=\idl{p}$.
 \end{proposition}
 
-\begin{proof}
 En efecto, para un ideal primo $\idl{Q}$ de $B$, la relaci\'on $\idl{Q}\cap A=\idl{p}$ equivale a
 $\idl{Q}\supset\idl{p}B$ ($\Rightarrow$ es evidente; $\Leftarrow$ pues $\idl{Q}\cap A$ es un ideal primo de
 $A$ y $\idl{p}$ es maximal). La proposici\'on~\ref{prop5.2.1} resulta entonces del formulario de los anillos de Dedekind
 (cap\'itulo~\ref{cap3}, \S\ref{sec3.4}).
-\end{proof}
 
 As\'i $A/\idl{p}$ se identifica a un subm\'odulo de $B/\idl{P}_{i}$. Estos dos anillos son cuerpos. Como $B$
 es un $A$-m\'odulo de tipo finito (cap\'itulo~\ref{cap3}, \S\ref{sec3.4}, teorema~\ref{teo3.4.1}),
@@ -3928,7 +3754,6 @@ Con la notaci\'on de arriba, se tiene
 \end{gather}
 \end{theorem}
 
-\begin{proof}
 La primera igualdad es f\'acil. Consideremos la sucesi\'on de ideales
 \begin{gather*}
 B\supset\idl{P}_{1}\supset\idl{P}_{1}^{2}\supset\dots\supset\idl{P}_{1}^{e_{1}}\supset\idl{P}_{1}^{e_{1}}\idl{P}_{2}
@@ -3962,20 +3787,17 @@ Ahora bien, se tiene $A'/\idl{p}A'\simeq A/\idl{p}$ y $B'/B'\idl{P}_{i}\simeq B/
 proposici\'on~\ref{prop5.1.5}),
 de donde, combinando las igualdades, $n=[B'/\idl{p}B':A'/\idl{p}A']=\sum_{i=1}^{q}e_{i}f_{i}$, lo que
 demuestra~\eqref{eq-5.2-2}.
-\end{proof}
 
 \begin{proposition}\label{prop5.2.2}
 Con la misma notaci\'on que antes, el anillo $B/B\idl{p}$ es isomorfo a $\prod_{i=1}^{q}B/\idl{P}_{i}^{e_{i}}$.
 \end{proposition}
 
-\begin{proof}
 En efecto, como $\idl{P}_{i}$ es el \'unico ideal maximal de $B$ que contiene a $\idl{P}_{i}^{e_{i}}$, se tiene
 $\idl{P}_{i}^{e_{i}}+\idl{P}_{j}^{e_{j}}=B$ si $i\neq j$. Aplicamos entonces~\eqref{eq-5.2-1} y el
 lema de \S\ref{sec1.3}, cap\'itulo~\ref{cap1}.
-\end{proof}
 
-%\subsubsection*{Ejemplo de los cuerpos ciclot\'omicos}
-\minisec{Ejemplo de los cuerpos ciclot\'omicos}
+\subsubsection*{Ejemplo de los cuerpos ciclot\'omicos}
+%\minisec{Ejemplo de los cuerpos ciclot\'omicos}
 
 Sea $p$ un n\'umero primo y $z\in\CC$ una ra\'iz primitiva $p$-\'esima de la unidad. Las ra\'ices $p^{r}$-\'esimas
 de la unidad, en $\CC$, son entonces los $z^{j}$ ($j=1,\dots,p^{r})$. Entre ellas, las ra\'ices primitivas son los
@@ -4022,7 +3844,6 @@ y $B = \prod_{i=1}^{q}B_{i}$ el anillo producto. Entonces $\disc_{B/A}=\prod_{i=
 (cf. cap\'itulo~\ref{cap2}, \S\ref{sec2.7}, definici\'on~\ref{def2.7.2}).
 \end{lemma}
 
-\begin{proof}
 En efecto una inducci\'on sobre $q$ nos permite suponer que $q=2$. Sean entonces $(x_{1},\dots,x_{m)})$,
 $(y_{1},\dots,y_{n})$ dos bases de $B_{1}$ y $B_{2}$ sobre $A$. Con la identificaci\'on cl\'asica de $B_{1}$ y
 $B_{2}$ con $B_{1}\times(0)$ y $(0)\times B_{2}$, $(x_{1},\dots,x_{m},y_{1},\dots,y_{n})$ es una base de
@@ -4042,7 +3863,6 @@ de donde
 \begin{gather*}
 D(x_{1},\dots,x_{m},y_{1},\dots,y_{n}) = D(x_{1},\dots,x_{m})D(y_{1},\dots,y_{n}).\qedhere%\quad\QED
 \end{gather*}
-\end{proof}
 
 \begin{lemma}\label{lem5.3.2}
 Sea $A$ un anillo, $B$ un anillo que contiene a $A$ y que admite una base finita $(x_{1},\dots,x_{n})$ y
@@ -4053,7 +3873,6 @@ D(\oline x_{1},\dots,\oline x_{n}) = \oline{D(x_{1},\dots,x_{n})}.
 \end{gather}
 \end{lemma}
 
-\begin{proof}
 En efecto, sea $x\in B$. Si la matriz de la multiplicaci\'on por $x$, en la base $(x_{i})$ es $(a_{ij})$
 ($a_{ij}\in A$), la matriz de la multiplicaci\'on por $\oline x$ en la base $(\oline x_{i})$ es la matriz
 $(\oline a_{ij})$. Por lo tanto se tiene $\Tr(\oline x) = \oline{\Tr(x)}$, de donde
@@ -4061,14 +3880,12 @@ $(\oline a_{ij})$. Por lo tanto se tiene $\Tr(\oline x) = \oline{\Tr(x)}$, de do
 \Tr(\oline x_{i}\cdot\oline x_{j}) = \oline{\Tr(x_{i}x_{j})},
 \end{gather*}
 y por lo tanto se obtiene~\eqref{eq-5.3-1} tomando determinantes.
-\end{proof}
 
 \begin{lemma}\label{lem5.3.3}
 Sea $K$ un cuerpo finito o de caracter\'istica cero y $L$ una $K$-\'algebra de dimensi\'on finita sobre $K$.
 Para que $L$ sea reducido es necesario y suficiente que $\disc_{L/K}\neq(0)$.
 \end{lemma}
 
-\begin{proof}
 Supongamos primero que $L$ no es reducida y sea $x\in L$ un elemento nilpotente no nulo. Ponemos $x_{1}=x$ y
 completamos este elemento de base en una base $(x_{1},\dots,x_{n})$ de $L$ sobre $K$. Entonces $x_{1}x_{j}$
 es nilpotente y por lo tanto la multiplicaci\'on por $x_{1}x_{j}$ es un endomorfismo nilpotente; por lo tanto
@@ -4085,7 +3902,6 @@ Tenemos por lo tanto $\disc_{L/K}=\prod_{i=1}^{q}\disc_{(L/\idl{P}_{i})/K}$
 (lema~\ref{lem5.3.1}). Ahora bien,
 $\disc_{(L/\idl{P}_{i})/K}\neq(0)$ pues $K$ es finito o de caracter\'istica cero
 (cap\'itulo~\ref{cap2}, \S\ref{sec2.7}, proposici\'on~\ref{prop2.7.3}), de donde $\disc_{L/K}\neq(0)$. \QED
-\end{proof}
 
 \begin{definition}\label{defV.3.1}
 Sean $K$ y $L$ dos cuerpos de n\'umeros con $K\subset L$, $A$ y $B$ los anillos de enteros de $K$ y $L$.
@@ -4116,7 +3932,6 @@ suficiente que contena al ideal discriminante $\disc_{B/A}$. S\'olo hay un n\'um
 ideales primos de $A$ que ramifican en $B$.
 \end{theorem}
 
-\begin{proof}
 La segunda afirmaci\'on resulta de la primera pues vimos que $\disc_{B/A}\neq(0)$.
 
 Demostremos la primera. Como $B/\idl{p}B\simeq\prod_{i=1}^{q}B/\idl{P}_{i}^{e_{i}}$ (\S\ref{sec5.2}, proposici\'on~\ref{prop5.2.2}),
@@ -4139,7 +3954,6 @@ y $s\in S$ para $1\leq i\leq n$. As\'i,
 \begin{gather*}
 D(e_{1},\dots,e_{n}) = s^{-2n}D(x_{1},\dots,x_{n})\in A'\disc_{B/A}\subset A'\idl{p}=\idl{p}'.\qedhere
 \end{gather*}
-\end{proof}
 
 \subsubsection*{Ejemplo de los cuerpos cuadr\'aticos}
 
@@ -4189,12 +4003,10 @@ que forman una base de $L$ sobre $\QQ$. Si el discriminante $D(x_{1},\dots,x_{n}
 entonces $(x_{1},\dots,x_{n})$ es una base sobre $\ZZ$ del anillo $B$ de enteros de $L$.
 \end{proposition}
 
-\begin{proof}
 En efecto, si $(e_{1},\dots,e_{n})$ es una base de $B$ sobre $\ZZ$, se tiene $x_{1}=\sum_{j=1}^{n}a_{ij}e_{j}$
 con $a_{ij}\in\ZZ$. De donde se sigue que $D(x_{1},\dots,x_{n})=\det(a_{ij})^{2}D(e_{1},\dots,e_{n})$.
 Como $D(x_{1},\dots,x_{n})$ es libre de cuadrados, deducimos que $\det(a_{ij})=\pm 1$, lo que implica que
 $(x_{1},\dots,x_{n})$ tambi\'en es una base de $B$ sobre $\ZZ$.
-\end{proof}
 
 \begin{comm}
 El ejemplo de los cuerpos ciclot\'omicos (para $p\geq 5$), o de los cuerpos cuadr\'aticos, muestra que
@@ -4302,7 +4114,6 @@ Por lo tanto se tiene la f\'ormula de multiplicatividad
 Si $p$ es un n\'umero primo impar y si $a\in\ZZ-p\ZZ$, se tiene $\leg{a}{p}\equiv a^{\frac{p-1}{2}}\pmod p$.
 \end{proposition}
 
-\begin{proof}
 En efecto sea $w$ una ra\'iz primitiva mod $p$ (cap\'itulo~\ref{cap1}, \S\ref{sec1.7}). Se tiene
 $a\equiv w^{j}\pmod p$ para alg\'un $0\leq j\leq p-2$ pues la clase $\oline w$ de $w$ es un generador
 de $\FF_{p}^{*}$. Es claro que ``$a$ residue cuadr\'atico'' equivale a ``$j$ par''. Por lo tanto se tiene
@@ -4312,7 +4123,6 @@ en $\ZZ$, se tiene $-1\equiv w^{\frac{p-1}{2}}\pmod p$. As\'i,
 \begin{gather*}
 \leg{a}{p}=(-1)^{j}\equiv w^{j\cdot\frac{p-1}{2}}\equiv a^{\frac{p-1}{2}}\pmod p.\qedhere
 \end{gather*}
-\end{proof}
 
 Ahora demostraremos un resultado celebre, que muestra que las propiedades de congruencias m\'odulo dos
 n\'umeros primos impares distintos no son independientes.
@@ -4324,7 +4134,6 @@ Si $p$ y $q$ son dos n\'umeros primos impares distintos, se tiene
 \end{gather*}
 \end{theorem}
 
-\begin{proof}
 En efecto, consideremos, en una extensi\'on conveniente de $\FF_{q}$, una ra\'iz primitiva $p$-\'esima de
 la unidad $w$. Como $w^{p}=1$, la notaci\'on $w^{x}$ tiene sentido para $x\in\FF_{p}$. Tambi\'en escribiremos
 el s\'imbolo de Legendre $\leg{x}{p}$ para $x\in\FF_{p}^{*}$ pues $\leg{d}{p}$ s\'olo depende evidentemente
@@ -4378,7 +4187,6 @@ de nuevo tenemos
 Como $p^{\frac{q-1}{2}}=\leg{q}{p}$ (proposici\'on~\ref{prop5.5.1})
 y $\leg{p}{q} = \leg{p}{q}^{-1}$, la ley de reciprocidad
 cuadr\'atica queda demostrada.
-\end{proof}
 
 \begin{proposition}[``f\'ormulas complementarias'']\label{prop5.5.2}
 Si $p$ es un n\'umero primo impar se tiene
@@ -4388,7 +4196,6 @@ Si $p$ es un n\'umero primo impar se tiene
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}
 En efecto {\itshape a}) es un caso particular del criterio de Euler (proposici\'on~\ref{prop5.5.1}).
 Demostremos por lo tanto
 {\itshape b}). Observemos primero que nada que, como los cuadrados de $1, 3, 5, 7\bmod 8$ son $1,1,1,1$,
@@ -4417,7 +4224,6 @@ $\theta(p) = (\tau(1)^{2})^{\frac{p-1}{2}}=8^{\frac{p-1}{2}}=\leg{8}{p}
 \leg{2}{p}^{2}=\leg{2}{p}$. Tenemos por lo tanto que $\leg{2}{p} = \theta(p)$. Pero como podemos
 constatar con un c\'alculo directo, si $x=1,3,5,7$ (o, m\'as eficazmente, si $x = 1,3,-3,-1$), se
 tiene $\theta(x) = (-1)^{\frac{x^{2}-1}{2}}$ y $\frac{x^{2}-1}{2}$ s\'olo depende de la clase de $x\bmod 8$. \QED
-\end{proof}
 
 %\begin{remark*}[Ejemplo de aplicaci\'on]
 \begin{example*}
@@ -4454,7 +4260,6 @@ El siguiente resultado nos ser\'a muy \'util:
 El anillo $B = \ZZ+\ZZ i$ de los enteros de Gauss es un dominio de ideales principales.
 \end{proposition}
 
-\begin{proof}
 Aplastemos, en efecto, esta mosca con un ``gros pave'' ???? Con la notaci\'on del cap\'itulo~\ref{cap4},
 \S\ref{sec4.3}, tenemos $n=2$, $r_{1}=0$, $r_{2}=1$, $d=-4$. Por lo tanto (cap\'itulo~\ref{cap4}, \S\ref{sec4.3},
 corolario de la proposici\'on~\ref{prop4.3.1}),
@@ -4462,7 +4267,6 @@ toda clase de ideales de $B$ contiene un ideal entero de norma $\leq\frac{4}{\pi
 \abs{4}^{1/2}=\frac{4}{\pi}$, por lo tanto contiene al ideal unidad $B$ (que es el \'unico ideal entero de
 norma $1$) pues $\frac{4}{\pi}<2$. As\'i todo ideal de $B$ es equivalente al ideal principal $B$, y es por
 lo tanto principal. \QED
-\end{proof}
 
 \begin{comm}
 {\em Sketch???} de una demostraci\'on elemental: como los puntos de $B$ forman un ret\'iculo de $\CC$,
@@ -4483,7 +4287,6 @@ Todo n\'umero primo $p\equiv 1\pmod 4$ es suma de dos cuadrados (i.e. es de la f
 $a,b\in\NN$).
 \end{proposition}
 
-\begin{proof}
 En efecto $Bp$ se descompone en un producto $\idl{p}_{1}\idl{p}_{2}$ de ideales primos distintos.
 De esto se sigue que $p^{2}=N(Bp) = N(\idl{p}_{1})N(\idl{p}_{2})$ (cap\'itulo~\ref{cap3}, \S\ref{sec3.5},
 proposici\'on~\ref{prop3.5.2}).
@@ -4494,7 +4297,6 @@ N(\idl{p}_{1}) = N(\idl{p}_{2}) = p.
 Pero como $\idl{p}_{1}$ es un ideal principal $B(a+bi)$ ($a,b\in\ZZ$)
 (proposici\'on~\ref{prop5.6.1}), se sigue que, tomando
 normas, $p = N(a+bi)=a^{2}+b^{2}$. \QED
-\end{proof}
 
 \begin{theorem}
 Sea $x$ un entero natural y $x = \prod_{p}p^{v_{p}(x)}$ su descomposici\'on en factores primos. Para que $x$
@@ -4502,7 +4304,6 @@ sea suma de dos cuadrados es necesario y suficiente que, para todo $p\equiv 3\pm
 $v_{p}(x)$ sea par.
 \end{theorem}
 
-\begin{proof}
 Para demostrar la suficiencia, observemos que una suma de dos cuadrados $a^{2}+b^{2}$ es la norma
 $N(a+bi)$ de un elemento de $B$; por la multiplicatividad de las normas, el conjunto $S$ de sumas de dos
 cuadrados es por lo tanto estable por multiplicaci\'on. Como $2 = 1^{2}+1^{2}\in S$ y como todo cuadrado
@@ -4516,7 +4317,6 @@ primos. Como $Bp$ es estable por el automorfismo $\sigma:u+iv\mapsto u-iv$ de $B
 el exponente de $Bp$ en la descomposici\'on de $B(a-ib$ tambi\'en es $n$. En la descomposici\'on de
 $B(a^{2}+b^{2})$, el exponente de $Bp$ es por lo tanto $2n$. Como ning\'un n\'umero primo distinto de
 $p$ pertenece a $Bp$ (pues $Bp\cap\ZZ = p\ZZ$), se tiene $v_{p}(x) = 2n$ y $v_{p}(x)$ es par. \QED
-\end{proof}
 
 \section{Teorema de los cuatro cuadrados}\label{sec5.7}
 
@@ -4559,7 +4359,6 @@ $\oline{\oline z}=z$. En t\'erminos m\'as savants ????, $z\mapsto\oline z$ es un
 de $\HH(A)$.
 \end{lemma}
 
-\begin{proof}
 La primer y la tercer f\'ormula son evidentes. Para la segunda basta demostrar, por linealidad,
 que $\oline{xy} = \oline{y}\oline x$ cuando $x,y\in\{1,i,j,k\}$.
 
@@ -4569,7 +4368,6 @@ $\oline y\cdot\oline x = (-i)(-i) = i^{2}=-1$. Si $x=i$ y $j=j$ se tiene
 \oline{xy} = \oline k = -k\quad\text{y}\quad\oline y\cdot\oline x = (-j)(-i) = ji = -k.
 \end{gather*}
 Las dem\'as verificaciones se deducen permutando los t\'erminos. \QED
-\end{proof}
 
 Dado un cuaterni\'on $z$ sobre $A$, llamamos {\em norma reducida} de $z$, y la notamos
 $N(z)$, al cuaterni\'on $z\oline z$.
@@ -4581,7 +4379,6 @@ $N(z) = a^{2}+b^{2}+c^{2}+d^{2}$ (!`cuatro cuadrados!), por lo tanto $N(z)\in A$
 b) Dados dos cuaterniones $z$, $z'$ sobre $A$, se tiene $N(zz') = N(z)N(z')$.
 \end{lemma}
 
-\begin{proof}
 Para {\itshape a}), desarollamos $(a+bi+cj+dk)(a-bi-cj-dk)$: por~\eqref{eq-5.7-1} los t\'erminos
 ``rect\'angulos'' ???? desaparecen, y lo que resta es $a^{2}+b^{2}+c^{2}+d^{2}$. Vemos tambi\'en que
 $z\oline z = \oline z z$. Entonces
@@ -4589,7 +4386,6 @@ $z\oline z = \oline z z$. Entonces
 N(zz') = zz'\cdot\oline{zz'} = zz'\oline z'\oline z = zN(z')\oline z = z\oline zN(z')
 \end{gather*}
 (pues el elemento $N(z')$ de $A$ conmuta con cualquier cueterni\'on), de donde $N(zz') = N(z)\cdot N(z')$. \QED
-\end{proof}
 
 \begin{comm}
 El lema~\ref{lem5.7.2} muestra que, en un anillo $A$ (conmutativo), el conjunto de las normas reducidas de cuaterniones,
@@ -4611,7 +4407,6 @@ $\HH z$ (resp. $z\HH$)).
 \end{enumerate}
 \end{lemma}
 
-\begin{proof}
 Para {\itshape a}), todas las afirmaciones son evidentes, salvo la estabilidad de $\HH$ bajo la multiplicaci\'on.
 Para eso, basta verificar que, si ponemos
 \begin{gather*}
@@ -4669,7 +4464,6 @@ enteros $>0$ por {\itshape b})). Entonces $u$ es inversible en $\HH(\QQ)$ pues s
 $\oline uN(u)^{-1}$ (esto muestra de paso que $\HH(\QQ)$ es un cuerpo no conmutativo). Para $y\in\idl{a}$,
 formemos $yu^{-1}\in\HH(\QQ)$ y tomemos un elemento $z\in\HH$ tal que $N((yu^{-1}-z)u)<N(u)$.
 Como $y-zu\in\idl{a}$ y $N(u)$ es minimal, deducimos que $y-zu=0$, $y\in\HH u$ y $\idl{a} = \HH u$. \QED
-\end{proof}
 
 Como el conjunto de las sumas de cuatro cuadrados en $\ZZ$ es multiplicativamente estable
 (cf. lema~\ref{lem5.7.2}), el teorema~\ref{teo5.7.1} se reduce a la:
@@ -4678,7 +4472,6 @@ Como el conjunto de las sumas de cuatro cuadrados en $\ZZ$ es multiplicativament
 Todo n\'umero primo $p$ es suma de cuatro cuadrados.
 \end{proposition}
 
-\begin{proof}
 Como $2 = 1^{2}+1^{2}+0^{2}+0^{2}$, podemos suponer que $p$ es imar. Como $p$ conmuta con todos los
 cuaterniones, el ideal a izquierda $\HH p$ es bil\'atero. Luego podemos formar el anillo cociente
 $\HH/\HH p$. Como $p$ es impar, todo $z\in\HH$ es congruente mod $\HH p$ a un elemento de $\HH(\ZZ)$
@@ -4703,7 +4496,6 @@ $N(2z)\in 4\ZZ$, de donde $N(\eta) = 0$ y $\eta\oline\eta = 0$. Ahora bien, $\ol
 de un cuaterni\'on $z'$ de la forma $\pm 1\pm i\pm j\pm k$; entonces $u = \frac{1}{2}z'\in\HH$,
 $u$ es de norma reducida $1$ y, como la clase de $(2z)\cdot(2u)$ es nula mod $4$, se tiene $zu\in\HH(\ZZ)$.
 Como $p=N(z)=N(zu)$, la afirmaci\'on queda demostrada. \QED
-\end{proof}
 
 \begin{remark*}
 Aqu\'i, una demostraci\'on elemental del hecho de que, sobre un cuerpo finito $K$, la forma cuadr\'adtica
@@ -4739,7 +4531,6 @@ condiciones son equivalentes:
 Bajo estas condiciones, el grupo $G$ de $K$-automorfismos de $L$ tiene $n$ elementos.
 \end{theorem}
 
-\begin{proof}
 Mostremos que {\itshape a}) implica {\itshape b}). En efecto, si $x\in L$, el polinomio
 $\prod_{\sigma\in G}(X-\sigma(x))$ es invariante por $G$ (pues todo $\tau\in G$ permuta los factores
 entre s\'i)\footnote{La finitud de $G$ resulta del cap\'itulo~\ref{cap2}, \S\ref{sec2.4}, teorema~\ref{teo2.4.1}.}. Por lo tanto
@@ -4763,7 +4554,6 @@ el corolario). Sea entonces $x\in L$ invariante por $G$, de manera que todo $\si
 de $L$. Como (cap\'itulo~\ref{cap2}, \S\ref{sec2.4}) hay exactamente $[L:K[x]]$ $K[x]$-isomorfismos de $L$ en una
 extensi\'on de $L$, se tiene por lo tanto $n\leq[L:K[x]]$, de donde $n=[L:K[x]]$, $K[x] = K$ y
 $x\in K$. Esto demuestra {\itshape a}). La igualdad $\card(G) = n$ fue demostrada por el camino. \QED
-\end{proof}
 
 \begin{definition}
 Si las condiciones del teorema~\ref{teo4.1.1} se satisfacen, decimos que $L$ es una extensi\'on galoisiana de $K$ y que
@@ -4777,7 +4567,6 @@ $H$ un grupo de automorfismos de $L$ que tiene a $K$ por su grupo de invariantes
 extensi\'on galoisiana de $K$ y $H$ es su grupo de Galois.
 \end{named}
 
-\begin{proof}
 En efecto, si $x\in L$, el polinomio $\prod_{\sigma\in H}(X-\sigma(x))$ es invariante
 por $H$ y por
 lo tanto sus coeficientes est\'an en $K$. As\'i, por el
@@ -4796,7 +4585,6 @@ de $x$ sobre $K$, de donde $n\leq d^{\circ}(P)$. Como
 d^{\circ}(P) = \card(H)\leq\card(G) = n,
 \end{gather*}
 deducimos que $H = G$. \QED
-\end{proof}
 
 \begin{theorem}\label{teo6.1.2}
 Sea $K$ un cuerpo finito o de caracter\'istica cero, $L$ una extensi\'on galoisiana de $K$
@@ -4819,7 +4607,6 @@ grupo cociente $G/g(K')$.
 \end{enumerate}%{trivlist}
 \end{theorem}
 
-\begin{proof}
 En efecto, para todo cuerpo intermedio $K'$ y todo $x\in L$, el polinomio minimal de $x$
 sobre $K'$ divide
 al polinomio minimal de $x$ sobre $K$. Por lo tanto tiene todas sus ra\'ices en $L$ por
@@ -4831,7 +4618,7 @@ Entonces, $K'$ es el cuerpo de invariantes del grupo $g(K')$ de los $K'$-automor
 un subgrupo de $G$. Entonces
 $G'$ es el grupo de Galois de $L$ sobre $k(G')$ (cor. del teorema~\ref{teo6.1.1}).
 Es decir, $G' = g(k(G'))$.
-Las f\'ormulas $k(g(K')) = K'$ y $g(k(G')) = G'$ muestran que $k$ y $g$ son biyecciones 
+Las f\'ormulas $k(g(K')) = K'$ y $g(k(G')) = G'$ muestran que $k$ y $g$ son biyecciones
 inversas una de la otra.
 Que son decrecientes es evidente. Esto demuestra {\itshape a}).
 
@@ -4866,7 +4653,6 @@ Su n\'ucleo es evidentemente $g(K')$. Como se tiene
 &= \card(G/g(K')),
 \end{align*}
 este homomorfismo es sobreyectivo y por eso $H\simeq G/g(K')$. \QED
-\end{proof}
 
 %\subsubsection*{Ejemplo 1. Extensiones cuadr\'aticas}
 \begin{example}[Extensiones cuadr\'aticas]
@@ -4950,7 +4736,7 @@ se tiene $\sigma^{j}(x) = x^{q^{j}}$, de donde $\sigma^{n}=1$ pues $\FF^{q^{n}}$
 $x$ tales que $x^{q^{n}}=x$ ({\itshape ibid.},
 teorema~\ref{teo1.7.1}, {\itshape c})). Por otra parte, para
 $1\leq j\leq n-1$, se tiene $\sigma^{j}\neq 1$ pues $\FF_{q^{j}}\neq\FF_{q^{n}}$. Por lo tanto,
-$\{1,\sigma,\dots,\sigma^{n-1}\}$ es un grupo c\'iclico de orden $n$. As\'i, por el corolario 
+$\{1,\sigma,\dots,\sigma^{n-1}\}$ es un grupo c\'iclico de orden $n$. As\'i, por el corolario
 del teorema~\ref{teo6.1.1}, $\FF_{q^{n}}$
 {\em es una extensi\'on c\'iclica de grado $n$ de $\FF_{q}$ y su grupo de Galois tiene un generador
 distinguido, a saber $x\mapsto x^{q}$, que llamamos automorfismo de Frobenius.}
@@ -4992,7 +4778,6 @@ y tiene el mismo grado residual $f$ y el mismo \'indice de ramificaci\'on $e$, d
 $A'\idl{p} = \left(\prod_{i=1}^{g}\idl{p}'_{i}\right)^{e}$ y $n=efg$.
 \end{proposition}
 
-\begin{proof}
 La afirmaci\'on sobre el \'indice de ramificaci\'on y el grado residual son evidentes, pues el automorfismo
 $\sigma$ preserva {\em todas} las relaciones algebraicas. La f\'ormula $n=efg$ es entonces un caso particular
 de $\sum e_{i}f_{i}=n$ (cap\'itulo~\ref{cap5}, \S\ref{sec5.2}, teorema~\ref{teo5.2.1}). Sea ahora $\idl{p}'$ uno de los $\idl{p}'_{i}$
@@ -5006,7 +4791,6 @@ un ideal de $R$ tal que $\idl{b}\not\subset\idl{p}_{i}$ para todo $i$. Entonces 
 $b\notin\idl{p}_{i}$ para todo $i$.
 \end{lemma}
 
-\begin{proof}
 En efecto, suprimiendo los $\idl{p}_{i}$ no maximales de
 $\{\idl{p}_{1},\dots,\idl{p}_{q}\}$, podemos suponer
 que se tiene que $\idl{p}_{j}\not\subset\idl{p}_{i}$ si $i\neq j$. Sea entonces
@@ -5019,7 +4803,6 @@ $\idl{p}_{i}$ es primo.
 Entonces $b=b_{1}+\dots+b_{q}$ satisface la conclusi\'on deseada, pues $b\in\idl{b}$ y,
 para todo $i$, se tiene
 $\sum_{j\neq i}b_{j}\in\idl{p}_{i}$, $b_{i}\notin\idl{p}_{i}$. \QED
-\end{proof}
 
 Luego, el lema muestra que existe un elemento $x\in\idl{q}'$ tal que $x\notin\sigma(\idl{p}')$ para todo
 $\sigma\in G$. Consderemos entonces $N(x) = \prod_{\tau\in G}\tau(x)$ (cap\'itulo~\ref{cap2}, \S\ref{sec2.6},
@@ -5033,7 +4816,6 @@ Por otra parte, se tiene $x\notin\tau^{-1}(\idl{p}')$, de donde $\tau(x)\notin\i
 para todo
 $\tau\in G$. Como $\idl{p}'$ es primo, deducimos que $N(x)\notin\idl{p}'$, lo que
 contradice $N(x)\in\idl{p}$. \QED
-\end{proof}
 
 Sea ahora $\idl{p}'$ uno de los ideales maximales de $A'$ tales que $\idl{p}'\cap A = \idl{p}$. Los $\sigma\in G$
 tal que $\sigma(\idl{p}') = \idl{p}'$ forman un subgrupo $D$ de $G$, que llamamos {\em grupo de descomposici\'on de
@@ -5054,7 +4836,6 @@ $A'/\idl{p}'$ es una extensi\'on galoisiana de grado $f$ de $A/\idl{p}$ y $\sigm
 homomorfismo sobreyectivo de $D$ sobre su grupo de Galois. Adem\'as, $\card(I) = e$.
 \end{proposition}
 
-\begin{proof}
 En efecto, sea $K_{D}$ el cuerpo de invariantes de $D$, $A_{D} = A'\cap K_{D}$ la clausura \'integral de
 $A$ en $K_{D}$ y $\idl{p}_{D}$ el ideal primo $\idl{p}'\cap A_{D}$. Por la
 proposici\'on~\ref{prop6.2.1} y la definici\'on
@@ -5083,7 +4864,6 @@ $A'/\idl{p}'$ es por lo tanto una extensi\'on {\em galoisiana} de $A/\idl{p}$
 es un $\oline\sigma(\oline x)$ que todo $(A/\idl{p})$-automorfismo de $A'/\idl{p}'$ es un $\oline\sigma$.
 As\'i el grupo de Galois de $A'/\idl{p}'$ sobre $A/\idl{p}$ se identifica a $D/I$. Como tiene orden
 $[A'/\idl{p}':A/\idl{p}]=f$, tenemos que $\card(D)/\card(I) = f$, de donde $\card(I) = e$ por~\eqref{eq6.2.2}. \QED
-\end{proof}
 
 \begin{corollary*}
 Para que $\idl{p}$ no ramifique en $A'$ es necesario y suficiente que el grupo de inercia $I$ consista
@@ -5146,7 +4926,6 @@ $(\idl{p}'\cap F,F/K)$.
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}
 En efecto, pongamos $\sigma = (\idl{p}',K'/K)$. Por definici\'on, tenemos $\sigma(\idl{p}')=\idl{p}'$ y
 $\sigma(x) \equiv x^{q}\pmod{\idl{p}'}$ para todo $x\in A'$ (aqu\'i, $q = \card(A/\idl{p})$). Tenemos por lo tanto
 \begin{gather*}
@@ -5165,7 +4944,6 @@ Supongamos ahora que $F$ es galoisiana sobre $K$ y notemos $\sigma'$ la restricc
 (\S\ref{sec6.1}, teorema~\ref{teo6.1.1}, {\itshape b})). Como $\sigma'(\idl{p}') = \idl{p}'$, se tiene $\sigma'(\idl{p}'\cap F)=\idl{p}'\cap F$
 y $\sigma'$ pertenece al grupo de descomposici\'on de $\idl{p}'\cap F$ sobre $K$. Adem\'as evidentemente
 se tiene $\sigma'(x)\equiv x^{q}$ para todo $x\in A'\cap F$, con $q = \card(A/\idl{p})$. Esto demuestra {\itshape b}).
-\end{proof}
 
 \section{Aplicaci\'on a los cuerpos ciclot\'omicos}\label{sec6.4}
 
@@ -5182,7 +4960,6 @@ a $(\ZZ/n\ZZ)^{*}$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
 En efecto, sea $F(X)$ el polinomio minimal de $z$ sobre $\QQ$ y $d$ su grado
 (tenemos $d = [\QQ[z]:\QQ]$). El polinomio $F(X)$ es un divisor de $X^{n}-1$, digamos
 $X^{n}-1=F(X)G(X)$. Tenemos $D(1,z,\dots,z^{d-1}) = N(F'(z))$ (cap\'itulo~\ref{cap2}, \S\ref{sec2.7},~\eqref{eq2.7.6}).
@@ -5213,7 +4990,6 @@ La relaci\'on $z^{j}\equiv z^{p}\pmod{\idl{p}}$ implica por lo tanto que $j$ es 
 mod $n$. As\'i $j(G)$ contiene las clases mod $n$ de todos los n\'umeros rimos $p$ que no dividen a
 $n$ y por lo tanto, por multiplicatividad, las clases de todos los enteros coprimos con $n$. En otras
 palabras $j(G) = (\ZZ/n\ZZ)^{*}$ y esto demuestra {\itshape b}).
-\end{proof}
 
 \section{Otra demostraci\'on de la ley de reciprocidad cuadr\'atica}
 
@@ -5449,7 +5225,7 @@ $A[X,Y]\to A[X]$ que tenga este ideal como n\'ucleo.
 
 \begin{exer*}{10B}
 Sea $A$ un dominio \'integro, $K$ su cuerpo de fracciones y $b$ un elemento no nulo
-de $A$. Mostrar 
+de $A$. Mostrar
 \end{exer*}
 
 \section*{Cap\'itulo II}
