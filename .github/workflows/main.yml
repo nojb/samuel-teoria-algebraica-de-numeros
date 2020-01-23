@@ -1,5 +1,8 @@
-name: Build PDF
-on: [push]
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - master
 jobs:
   build_pdf:
     runs-on: ubuntu-latest
@@ -10,3 +13,13 @@ jobs:
         uses: xu-cheng/latex-action@master
         with:
           root_file: samuel.tex
+      - name: Copy to build dir
+        run: |
+          mkdir build
+          cp samuel.pdf build/
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
