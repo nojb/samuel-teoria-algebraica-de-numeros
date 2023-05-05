@@ -1,7 +1,14 @@
-\documentclass[bibtotoc,leqno,spanish]{amsbook}
+\documentclass[twoside,leqno,spanish]{memoir}
 %\usepackage[linktocpage=false,pagebackref=true]{hyperref}
 
-\usepackage[paperwidth=14.81cm, paperheight=21.01cm, right=1.5cm, left=1.5cm, top=1.5cm, bottom=1.5cm, includehead, includefoot]{geometry}
+\setstocksize{21cm}{15cm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settypeblocksize{16.6cm}{11.8cm}{*}
+\setlrmargins{*}{1.8cm}{*}
+\setulmargins{1.8cm}{*}{*}
+%\setheadfoot{\onelineskip}{2\onelineskip}
+%\setheaderspaces{*}{2\onelineskip}{*}
+\checkandfixthelayout
 
 %,es-noindentfirst
 %,es-nosectiondot
@@ -10,7 +17,8 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{xspace}
-\usepackage{frenchmath}
+
+%\usepackage{frenchmath}
 %\usepackage[color]{showkeys}
 
 \let\emph\relax % there's no \RedeclareTextFontCommand
@@ -36,24 +44,24 @@
 \renewcommand{\to}[1][]{\xrightarrow{#1}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
 
-%\DeclareMathOperator{\card}{card}
-%\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\mcm}{mcm}
 \DeclareMathOperator{\mcd}{mcd}
 \DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\Tr}{Tr}
-%\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hom}{Hom}
 
 \numberwithin{equation}{section}
 \renewcommand{\theequation}{\arabic{equation}}
 
 \addto\captionsspanish{\renewcommand{\chaptername}{Cap\'itulo}}
 \addto\captionsspanish{\renewcommand{\contentsname}{\'Indice general}}
-\addto\captionsspanish{\renewcommand{\translname}{Traducido por}}
+%\addto\captionsspanish{\renewcommand{\translname}{Traducido por}}
 
 \newenvironment{comm}%
-	{\begin{list}{}{\setlength{\leftmargin}{2\parindent}\setlength{\topsep}{\baselineskip}}\item\itshape}
-	{\end{list}}
+	{\vskip\baselineskip\itshape\small}
+	{\vskip\baselineskip}
 
 \newtheoremstyle{defi}{}{}{}{}{\bfseries}{.}{ }{}
 
@@ -61,14 +69,25 @@
   {}%      Space above
   {}%      Space below
   {\itshape}%         Body font
-  {}%         Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}% Thm head font
+  {\parindent}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\scshape}% Thm head font
   {.}%        Punctuation after thm head
   { }%     Space after thm head: " " = normal interword space;
      %       \newline = linebreak
   {}%Thm head spec (can be left empty, meaning `normal')
 
-\theoremstyle{note}
+\newtheoremstyle{rem}% name
+  {}%      Space above
+  {}%      Space below
+  {}%         Body font
+  {\parindent}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\scshape}% Thm head font
+  {.}%        Punctuation after thm head
+  { }%     Space after thm head: " " = normal interword space;
+     %       \newline = linebreak
+  {}%Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{rem}
 \newtheorem*{definition*}{Definici\'on}
 \newtheorem{definition}{Definici\'on}
 \newcommand{\exername}{}
@@ -91,16 +110,13 @@
 	\begin{namedthm}}%
 	{\end{namedthm}}
 
-\newtheoremstyle{rem}
-  {}{}{}{}{\itshape}{.}{ }{}
-
 \theoremstyle{rem}
 \newtheorem{example}{Ejemplo}
 \newtheorem*{example*}{Ejemplo}
 \newtheorem{remark}{Observaci\'on}
 \newtheorem*{remark*}{Observaci\'on}
 
-\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thesection}{\arabic{section}}
 
 \numberwithin{theorem}{section}
@@ -119,133 +135,161 @@
 \numberwithin{footnote}{section}%restart in each section
 \renewcommand{\thefootnote}{\arabic{footnote}}
 
-\title{Teor\'ia de n\'umeros algebraica}
+\nouppercaseheads
+
+\title{Teor\'ia algebraica de n\'umeros}
 \author{Pierre Samuel}
-\translator{Nicol\'as Ojeda B\"ar}
+%\translator{Nicol\'as Ojeda B\"ar}
 \date{}
+
+\addtopsmarks{myheadings}{}{%
+  \createmark{chapter}{both}{nonumber}{}{}
+  \createmark{section}{right}{nonumber}{}{}
+}
+
+\makeevenhead{myheadings}{\small\bfseries\itshape\thepage}{}{\small\bfseries\itshape\leftmark}
+\makeoddhead{myheadings}{\small\bfseries\itshape\rightmark}{}{\small\bfseries\itshape\thepage}
+
+\setsecheadstyle{\normalsize\bfseries}
+
+\renewcommand{\chapnumfont}{\scshape\normalsize}
+\renewcommand{\chapnamefont}{\scshape\centering\normalsize}
+\renewcommand{\chaptitlefont}{\normalsize\bfseries\centering}
+\renewcommand{\printchaptertitle}[1]{\chaptitlefont\MakeUppercase{#1}}
 
 \setcounter{tocdepth}{1}
 
+\renewcommand{\chapternumberline}[1]{\chaptername{} #1.\quad}
+\renewcommand{\cftchapterfont}{\normalfont\itshape}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchapterdotsep}{\cftdotsep}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+
 \begin{document}
+
+\pagestyle{empty}
 
 \frontmatter
 
-\maketitle
+\begin{titlingpage}
+  \renewcommand{\pretitle}{\begin{center}\huge\scshape\bfseries}
+  \renewcommand{\posttitle}{\par\end{center}\skip 0.5em}
+  \maketitle
+\end{titlingpage}
 
 \newpage
 
-Pierre Samuel, doctor en ciencias, profesor de la universidad Paris XI, naci\'o en 1921.
-Sus trabajos conciernen principalmente el \'algebra conmutativa y la geometr\'ia algebraica.
+Pierre Samuel, doctor en ciencias, profesor de la universidad Paris XI, naci\'o
+en 1921.  Sus trabajos conciernen principalmente el \'algebra conmutativa y la
+geometr\'ia algebraica.
 
+\newpage
+
+\mainmatter
+
+\pagestyle{myheadings}
+
+\markboth{\contentsname}{\contentsname}
 \tableofcontents
 
 \chapter*{Introducci\'on}
+\addcontentsline{toc}{chapter}{Introducci\'on}
 
-La Teor\'ia de N\'umeros, o Aritm\'etica, a veces es llamada
-la ``Reina de la Matem\'atica''. La simplicidad del objeto
-de estudio (los n\'umeros enteros y sus generalizaciones), la elegancia,
-la diversidad de los m\'etodos y los numeros problemas irresueltos
-ejercen una poderosa atracci\'on sobre los matem\'aticos,
-ya sean principiantes, te\'oricos de n\'umeros profesionales o
-especialistas en otras ramas de la matem\'atica. Es por eso que no
-debe sorprender al lector que el autor de este libro es un ge\'ometra
-algebraico, que no tiene ninguna publicaci\'on original dentro
-del dominio de la Aritm\'etica propiamente dicho.
+La Teor\'ia de N\'umeros, o Aritm\'etica, a veces es llamada la ``Reina de la
+Matem\'atica''. La simplicidad del objeto de estudio (los n\'umeros enteros y
+sus generalizaciones), la elegancia, la diversidad de los m\'etodos y los
+numeros problemas irresueltos ejercen una poderosa atracci\'on sobre los
+matem\'aticos, ya sean principiantes, te\'oricos de n\'umeros profesionales o
+especialistas en otras ramas de la matem\'atica. Es por eso que no debe
+sorprender al lector que el autor de este libro es un ge\'ometra algebraico, que
+no tiene ninguna publicaci\'on original dentro del dominio de la Aritm\'etica
+propiamente dicho.
 
-De hecho, este libro no se distingue ni por su profundidad ni
-por su alcance. M\'as a\'un, s\'olo presenta uno de los posibles
-puntos de vista con los cuales se puede abordar la teor\'ia de n\'umeros,
-a saber, el punto de vista algebraico. Salvo un resultado elemental
-de Minkowski sobre reticulados en $\RR^{n}$, no se tocan en ning\'un
-momento los bellos, y f\'ertiles, m\'etodos anal\'iticos.
+De hecho, este libro no se distingue ni por su profundidad ni por su
+alcance. M\'as a\'un, s\'olo presenta uno de los posibles puntos de vista con
+los cuales se puede abordar la teor\'ia de n\'umeros, a saber, el punto de vista
+algebraico. Salvo un resultado elemental de Minkowski sobre reticulados en
+$\RR^{n}$, no se tocan en ning\'un momento los bellos, y f\'ertiles, m\'etodos
+anal\'iticos.
 
-La preponderancia otorgada al punto de vista algebraico me parece
-justificada por diversas razones. En primer lugar, permite ponerse
-r\'apidamente en el marco donde los problemas de la aritm\'etica
-se enuncian en su forma
-m\'as natural, incluso cuando s\'olo involucran los n\'umeros enteros
-usuales. Veremos, por ejemplo, que la b\'usqueda de soluciones
-en enteros de la ecuaci\'on de {Pell-Fermat} $x^{2}-dy^{2}=\pm 1$
-($d$: un entero dado libre de cuadrados) es un problema que esencialmente
-concierne al cuerpo cuadr\'atico $\QQ(\sqrt{d})$. Para la
-``gran'' ecuaci\'on de {Fermat} $x^{n}+y^{n}=z^{n}$, es el cuerpo de
-ra\'ices  $n$-\'esimas de la unidad que juega el papel decisivo.
-Para escribir un entero como suma de dos (respectivamente, cuatro)
-cuadrados, veremos que es muy ventajoso trabajar con el anillo
-$\ZZ[i]$ de los enteros de Gauss (respectivamente, con un
-anillo de cuaterniones conveniente). La ley de reciprocidad
-cuadr\'atica hace intervenir al mismo tiempo los cuerpos cuadr\'aticos y las ra\'ices de
-la unidad. A lo largo de todo esto, aparecen cuerpos m\'as generales que
-$\QQ$, anillos m\'as generales que $\ZZ$, como tambi\'en sus cuerpos y
-anillos cocientes, es decir, cuerpos finitos y \'algebras
-sobre \'estos.
+La preponderancia otorgada al punto de vista algebraico me parece justificada
+por diversas razones. En primer lugar, permite ponerse r\'apidamente en el marco
+donde los problemas de la aritm\'etica se enuncian en su forma m\'as natural,
+incluso cuando s\'olo involucran los n\'umeros enteros usuales. Veremos, por
+ejemplo, que la b\'usqueda de soluciones en enteros de la ecuaci\'on de
+{Pell-Fermat} $x^{2}-dy^{2}=\pm 1$ ($d$: un entero dado libre de cuadrados) es
+un problema que esencialmente concierne al cuerpo cuadr\'atico
+$\QQ(\sqrt{d})$. Para la ``gran'' ecuaci\'on de {Fermat} $x^{n}+y^{n}=z^{n}$, es
+el cuerpo de ra\'ices $n$-\'esimas de la unidad que juega el papel decisivo.
+Para escribir un entero como suma de dos (respectivamente, cuatro) cuadrados,
+veremos que es muy ventajoso trabajar con el anillo $\ZZ[i]$ de los enteros de
+Gauss (respectivamente, con un anillo de cuaterniones conveniente). La ley de
+reciprocidad cuadr\'atica hace intervenir al mismo tiempo los cuerpos
+cuadr\'aticos y las ra\'ices de la unidad. A lo largo de todo esto, aparecen
+cuerpos m\'as generales que $\QQ$, anillos m\'as generales que $\ZZ$, como
+tambi\'en sus cuerpos y anillos cocientes, es decir, cuerpos finitos y
+\'algebras sobre \'estos.
 
-As\'i, si bien no agota la Teor\'ia de N\'umeros, el m\'etodo algebraico
-permite obtener rapidamente resultados substanciales. De hecho, de continuar en
-esta misma direcci\'on, arrivar\'iamos a teoremas m\'as profundos,
-como aquellos de la teor\'ia de cuerpos de clases.
+As\'i, si bien no agota la Teor\'ia de N\'umeros, el m\'etodo algebraico permite
+obtener rapidamente resultados substanciales. De hecho, de continuar en esta
+misma direcci\'on, arrivar\'iamos a teoremas m\'as profundos, como aquellos de
+la teor\'ia de cuerpos de clases.
 
-Por otra parte, a\'un aquellos que prefieren los m\'etodos anal\'iticos
-no ignoran que \'estos s\'olo adquieren su m\'axima expresi\'on cuando se los aplica
-a cuerpos de n\'umeros algebraicos y no s\'olamente a $\QQ$.
-Por ejemplo, no vale la pena estudiar s\'olamente la funci\'on
-$\zeta(s)$ sin tratar al mismo tiempo la funci\'on $\zeta_{K}(s)$
-de un cuerpo de n\'umeros $K$, ni otras numerosas ``series $L$.''
+Por otra parte, a\'un aquellos que prefieren los m\'etodos anal\'iticos no
+ignoran que \'estos s\'olo adquieren su m\'axima expresi\'on cuando se los
+aplica a cuerpos de n\'umeros algebraicos y no s\'olamente a $\QQ$.  Por
+ejemplo, no vale la pena estudiar s\'olamente la funci\'on $\zeta(s)$ sin tratar
+al mismo tiempo la funci\'on $\zeta_{K}(s)$ de un cuerpo de n\'umeros $K$, ni
+otras numerosas ``series $L$.''
 
 Finalmente, el desarollo del m\'etodo algebraico tiene la ventaja de presentar
 al estudiante con numerosos ejemplos ilustrativos de las nociones introducidas
-en el curso de \'algebra: grupos, anillos, cuerpos, ideales, anillos y cuerpos cociente,
-homomorfismos e isomorfismos, m\'odulos y espacios vectoriales. Al mismo tiempo
-se introducen numerosas nociones algebraicas que son fundamentales
+en el curso de \'algebra: grupos, anillos, cuerpos, ideales, anillos y cuerpos
+cociente, homomorfismos e isomorfismos, m\'odulos y espacios vectoriales. Al
+mismo tiempo se introducen numerosas nociones algebraicas que son fundamentales
 en otras ramas de la matem\'atica, como la Geometr\'ia Algebraica. Por ejemplo,
-los elementos enteros sobre un anillo, las extensiones de cuerpos, la teor\'ia de Galois,
-los m\'odulos sobre dominios de ideales principales, los anillos y m\'odulos noetherianos,
-los anillos de Dedekind y los anillos de fracciones.
+los elementos enteros sobre un anillo, las extensiones de cuerpos, la teor\'ia
+de Galois, los m\'odulos sobre dominios de ideales principales, los anillos y
+m\'odulos noetherianos, los anillos de Dedekind y los anillos de fracciones.
 
-Lo anterior describe implicitamente lo que el lector encontrar\'a
-en este libro y aquello que le ser\'a imposible encontrar aqu\'i.
-He asumido que \'el conoce el \'algebra de un primer curso de licenciatura:
-nociones b\'asicas sobre los grupos, anillos, cuerpos, polinomios,
-espacios vectoriales---el manejo de los subobjetos, objetos cociente
-y objetos producto---el mecanismo del paso al cociente por un ideal o
-un submodulo---las diversas nociones de homomorfismo e isomorfismo.
-Todo lo necesario sobre estas cuestiones puede encontrarse en un
-libro b\'asico de \'algebra ``moderna,'' por ejemplo el
-excelente ``Cours d'Alg\`ebre'' de {R. Godement} o el ``Algebra''
-de {S. Lang\footnote{Desde ya, estas dos obras tienen un alcance mucho mayor.}.}
-Por eso, utilisar\'e este lenguaje
-y resultados sin mencionarlo y espero poder mostrarle
-al lector que son muy eficaces a la hora de obtener rapidamente
-teoremas substanciales de la aritm\'etica.
-Por otra parte, pens\'e que, si bien estos temas se cubren en
-la orientaci\'on de ``algebra'' de la Licenciatura, ser\'ia
-m\'as c\'omodo para el lector poder encontrar aqu\'i todo lo
-necesario sobre elementos enteros de un anillo, extensiones
-algebraicas de cuerpos, teor\'ia de Galois, modulos y
-anillos noetherianos y anillos de fracciones. He intenatado
-presentar estos temas sin ninguna laguna (??), pero al mismo
-tiempo evitando cualquiera sofisticacion inutil.
+Lo anterior describe implicitamente lo que el lector encontrar\'a en este libro
+y aquello que le ser\'a imposible encontrar aqu\'i.  He asumido que \'el conoce
+el \'algebra de un primer curso de licenciatura: nociones b\'asicas sobre los
+grupos, anillos, cuerpos, polinomios, espacios vectoriales---el manejo de los
+subobjetos, objetos cociente y objetos producto---el mecanismo del paso al
+cociente por un ideal o un submodulo---las diversas nociones de homomorfismo e
+isomorfismo.  Todo lo necesario sobre estas cuestiones puede encontrarse en un
+libro b\'asico de \'algebra ``moderna,'' por ejemplo el excelente ``Cours
+d'Alg\`ebre'' de {R. Godement} o el ``Algebra'' de {S. Lang\footnote{Desde ya,
+  estas dos obras tienen un alcance mucho mayor.}.}  Por eso, utilisar\'e este
+lenguaje y resultados sin mencionarlo y espero poder mostrarle al lector que son
+muy eficaces a la hora de obtener rapidamente teoremas substanciales de la
+aritm\'etica.  Por otra parte, pens\'e que, si bien estos temas se cubren en la
+orientaci\'on de ``algebra'' de la Licenciatura, ser\'ia m\'as c\'omodo para el
+lector poder encontrar aqu\'i todo lo necesario sobre elementos enteros de un
+anillo, extensiones algebraicas de cuerpos, teor\'ia de Galois, modulos y
+anillos noetherianos y anillos de fracciones. He intenatado presentar estos
+temas sin ninguna laguna (??), pero al mismo tiempo evitando cualquiera
+sofisticacion inutil.
 
-Este libro debe su existencia a un curso de ``Matem\'atica avanzada''
-dictado en la Universidad de Paris en 1965 y de nuevo en 1966.
-Notas fotocopiadas de {Alfred Vidal-Madjar,} alumno del \'Ecole
-Normale Sup\'erieure, al cual le agradezco vivamente, sirvieron
-como una primera versi\'on. Algunos pasajes provienen de cursos dicatdos
-en el \'Ecole Normale Sup\'erieure de Jeunes Filles y en la Universidad
-de Clermont-sur-Tiretaine. Por \'ultimo, me fueron muy importantes el consejo
-y la influencia de numerosos matem\'aticos. Entre estos, quiero agradecer
-especialmente al maestro de mi generaci\'on, {N. Bourbaki,} que tuvo la
-amabilidad de mostrarme algunos de sus manuscritos que todav\'ia no han sido
-publicados. Tambi\'en les agradezo a mis amigos {Emil Grosswald,} {Georges
-Poitou,} {Jean-Pierre Serre} y {John Tate.}
+Este libro debe su existencia a un curso de ``Matem\'atica avanzada'' dictado en
+la Universidad de Paris en 1965 y de nuevo en 1966.  Notas fotocopiadas de
+{Alfred Vidal-Madjar,} alumno del \'Ecole Normale Sup\'erieure, al cual le
+agradezco vivamente, sirvieron como una primera versi\'on. Algunos pasajes
+provienen de cursos dicatdos en el \'Ecole Normale Sup\'erieure de Jeunes Filles
+y en la Universidad de Clermont-sur-Tiretaine. Por \'ultimo, me fueron muy
+importantes el consejo y la influencia de numerosos matem\'aticos. Entre estos,
+quiero agradecer especialmente al maestro de mi generaci\'on, {N. Bourbaki,} que
+tuvo la amabilidad de mostrarme algunos de sus manuscritos que todav\'ia no han
+sido publicados. Tambi\'en les agradezo a mis amigos {Emil Grosswald,} {Georges
+  Poitou,} {Jean-Pierre Serre} y {John Tate.}
 
 \section*{Prefacio a la segunda edici\'on}
 
-Mis sinceros agradecimientos a numerosos lectores de la primera
-edici\'on, entre ellos Germaine Revuz, Alain Bouvier y Pierre Cartier,
-que env\'iaron listas de correcciones sumamente \'utiles. Las observaciones
-del traductor de la edici\'on inglesa, Alan Silberger, tambi\'en han sido
-muy valiosas.
+Mis sinceros agradecimientos a numerosos lectores de la primera edici\'on, entre
+ellos Germaine Revuz, Alain Bouvier y Pierre Cartier, que env\'iaron listas de
+correcciones sumamente \'utiles. Las observaciones del traductor de la edici\'on
+inglesa, Alan Silberger, tambi\'en han sido muy valiosas.
 
 \begin{flushright}
 julio 1971
@@ -267,80 +311,86 @@ julio 1971
 }
 
 \chapter*{Repaso de notaciones, definiciones y resultados}
+\addcontentsline{toc}{chapter}{Repaso de notaciones, definiciones y resultados}
 
-Utilizamos las notaciones usuales de la teor\'ia de conjuntos:
-$\in$, $\subset$, $\cup$, $\cap$.
-El complemento de un subconjunto $B$ de un conjunto $A$ se nota $A - B$.
-El cardinal (o potencia o n\'umero de elementos) de un conjunto $A$ lo notaremos
-$\card(A)$; si $A$ es un grupo tambi\'en hablamos del orden de $A$.
+Utilizamos las notaciones usuales de la teor\'ia de conjuntos: $\in$, $\subset$,
+$\cup$, $\cap$.  El complemento de un subconjunto $B$ de un conjunto $A$ se nota
+$A - B$.  El cardinal (o potencia o n\'umero de elementos) de un conjunto $A$ lo
+notaremos $\card(A)$; si $A$ es un grupo tambi\'en hablamos del orden de $A$.
 
-Suponemos que el lector est\'a familiarizado
-con las nociones de grupo, anillo, cuerpo y espacio vectorial,
-como as\'i tambi\'en la teor\'ia b\'asica de los espacios vectoriales
-(llamada tambi\'en ``algebra lineal''). En este libro, salvo en el cap\'itulo~\ref{cap5},
-\S\ref{sec5.7}, ``anillo'' (resp. ``cuerpo'') quiere decir anillo (resp. cuerpo)
-\emph{conmutativo y con unidad.}
+Suponemos que el lector est\'a familiarizado con las nociones de grupo, anillo,
+cuerpo y espacio vectorial, como as\'i tambi\'en la teor\'ia b\'asica de los
+espacios vectoriales (llamada tambi\'en ``algebra lineal''). En este libro,
+salvo en el cap\'itulo~\ref{cap5}, \S\ref{sec5.7}, ``anillo'' (resp. ``cuerpo'')
+quiere decir anillo (resp. cuerpo) \emph{conmutativo y con unidad.}
 
-Dado un grupo finito $G$ y un subgrupo $H$ de $G$, recordamos que $\card(H)$ divide
-a $\card(G)$; el cociente $\card(G)/\card(H)$ se llama el \'indice de $H$ en $G$ y
-se nota $(G:H)$.
+Dado un grupo finito $G$ y un subgrupo $H$ de $G$, recordamos que $\card(H)$
+divide a $\card(G)$; el cociente $\card(G)/\card(H)$ se llama el \'indice de $H$
+en $G$ y se nota $(G:H)$.
 
 Dados dos subconjuntos $A$ y $B$ de un grupo $G$ (escrito aditivamente), $A+B$
 denota el conjunto de sumas $a+b$ con $a\in A$ y $b\in B$.
 
-Dado un anillo $A$, denotamos por $A[X]$ o $A[Y]$ (letras may\'usculas)
-el anillo de polinomios (formales) en una variable sobre $A$; escribimos
-$A[X_{1},\dots,X_{n}]$ para el anillo de polinomios en $n$ variables y $A[[X]]$ para las
-series formales.
+Dado un anillo $A$, denotamos por $A[X]$ o $A[Y]$ (letras may\'usculas) el
+anillo de polinomios (formales) en una variable sobre $A$; escribimos
+$A[X_{1},\dots,X_{n}]$ para el anillo de polinomios en $n$ variables y $A[[X]]$
+para las series formales.
 
-Por convenci\'on, un subanillo $A$ de un anillo $B$ contiene el elemento unidad de $B$.
-Dado un anillo $B$, un subanillo $A$ de $B$ y un elemento $x\in B$, denotamos por
-$A[x]$ el subanillo de $B$ generado por $A$ y $x$, es decir, la intersecci\'on de todos
-los subanillos de $B$ que contienen $A$ y $x$; es el conjunto de sumas de la forma
-$a_{0}+a_{1}x+\dots+a_{n}x^{n}$ ($a_{i}\in A$); Escribimos $A[x_{1},\dots,x_{n}]$
-para el subanillo de $B$ generado por $A$ y una colecci\'on finita $(x_{1},\dots,x_{n})$
-de elementos de $B$.
+Por convenci\'on, un subanillo $A$ de un anillo $B$ contiene el elemento unidad
+de $B$.  Dado un anillo $B$, un subanillo $A$ de $B$ y un elemento $x\in B$,
+denotamos por $A[x]$ el subanillo de $B$ generado por $A$ y $x$, es decir, la
+intersecci\'on de todos los subanillos de $B$ que contienen $A$ y $x$; es el
+conjunto de sumas de la forma $a_{0}+a_{1}x+\dots+a_{n}x^{n}$ ($a_{i}\in A$);
+Escribimos $A[x_{1},\dots,x_{n}]$ para el subanillo de $B$ generado por $A$ y
+una colecci\'on finita $(x_{1},\dots,x_{n})$ de elementos de $B$.
 
-Un anillo se dice \emph{dominio \'integro} (o sin divisores de cero) si el producto de dos
-elementos no nulos es no nulo y si $A$ tiene m\'as de un elemento.
+Un anillo se dice \emph{dominio \'integro} (o sin divisores de cero) si el
+producto de dos elementos no nulos es no nulo y si $A$ tiene m\'as de un
+elemento.
 
 Un ideal $\idl{b}$ de un anillo $A$ es un subgrupo aditivo tal que $x\in\idl{b}$
-y $a\in A$ implican $ax\in\idl{b}$. El anillo completo y el conjunto que consiste del
-\'unico elemento $0$ (escrito $\{0\}$) son ideales, algunas veces llamados ``triviales''.
-Un cuerpo no posee ning\'un otro ideal, y esta propiedad caracteriza a los cuerpos
-entre todos los anillos. Dada una familia $(b_{i})$ de elementos de un anillo $A$, la intersecci\'on
-de los ideales de $A$ que contienen a los $b_{i}$ es un ideal de $A$, llamado el ideal
-generado por los $b_{i}$; es el conjunto de sumas finitas $\sum_{i}a_{i}b_{i}$ con $a_{i}\in A$.
-Un ideal generado por un elemento $b$ se dice principal y lo escribimos $Ab$ \'o $(b)$.
+y $a\in A$ implican $ax\in\idl{b}$. El anillo completo y el conjunto que
+consiste del \'unico elemento $0$ (escrito $\{0\}$) son ideales, algunas veces
+llamados ``triviales''.  Un cuerpo no posee ning\'un otro ideal, y esta
+propiedad caracteriza a los cuerpos entre todos los anillos. Dada una familia
+$(b_{i})$ de elementos de un anillo $A$, la intersecci\'on de los ideales de $A$
+que contienen a los $b_{i}$ es un ideal de $A$, llamado el ideal generado por
+los $b_{i}$; es el conjunto de sumas finitas $\sum_{i}a_{i}b_{i}$ con $a_{i}\in
+A$.  Un ideal generado por un elemento $b$ se dice principal y lo escribimos
+$Ab$ \'o $(b)$.
 
-Dado un anillo $A$ y un ideal $\idl{b}$ de $A$, las clases de equivalencia $a+\idl{b}$
-($a\in A$) forman un anillo, llamado anillo cociente de $A$ por $\idl{b}$ y notado
-$A/\idl{b}$. Los ideales de $A/\idl{b}$ son de la forma $\idl{b}'/\idl{b}$, donde
-$\idl{b}'$ recorre el conjunto de ideales de $A$ que contienen a $\idl{b}$. para que
-$A/\idl{b}$ sea un cuerpo es necesario y suficiente que $\idl{b}$ sea maximal entre los ideales
-de $A$ distintos a $A$; en este caso decimos que $\idl{b}$ es maximal. Un ideal $\idl{p}$
-se dice primo si $A/\idl{p}$ es un dominio \'integro.
+Dado un anillo $A$ y un ideal $\idl{b}$ de $A$, las clases de equivalencia
+$a+\idl{b}$ ($a\in A$) forman un anillo, llamado anillo cociente de $A$ por
+$\idl{b}$ y notado $A/\idl{b}$. Los ideales de $A/\idl{b}$ son de la forma
+$\idl{b}'/\idl{b}$, donde $\idl{b}'$ recorre el conjunto de ideales de $A$ que
+contienen a $\idl{b}$. para que $A/\idl{b}$ sea un cuerpo es necesario y
+suficiente que $\idl{b}$ sea maximal entre los ideales de $A$ distintos a $A$;
+en este caso decimos que $\idl{b}$ es maximal. Un ideal $\idl{p}$ se dice primo
+si $A/\idl{p}$ es un dominio \'integro.
 
-Dados dos anillos $A$, $A'$ con elementos neutros $e$ y $e'$, un homomorfismo $f:A\to A'$ es una
-funci\'on $f$ de $A$ en $A'$ tal que:
+Dados dos anillos $A$, $A'$ con elementos neutros $e$ y $e'$, un homomorfismo
+$f:A\to A'$ es una funci\'on $f$ de $A$ en $A'$ tal que:
 \begin{gather*}
 f(a+b)=f(a)+f(b),\quad f(ab) = f(a)f(b),\quad f(e) = e'.
 \end{gather*}
-Dado un anillo $A$, una \emph{$A$-\'algebra} es un anillo $B$ equipado con un homomorfismo
-$\varphi:A\to B$. Si $A$ es un cuerpo $\varphi$ es injectivo, y en este caso generalmente
-identificamos $A$ con su imagen $\varphi(A)$ (que es un subanillo de $B$).
+Dado un anillo $A$, una \emph{$A$-\'algebra} es un anillo $B$ equipado con un
+homomorfismo $\varphi:A\to B$. Si $A$ es un cuerpo $\varphi$ es injectivo, y en
+este caso generalmente identificamos $A$ con su imagen $\varphi(A)$ (que es un
+subanillo de $B$).
 
-Dado un cuerpo $L$ y un subcuerpo $K$ de $L$, decimos que $L$ es una extension de $K$.
+Dado un cuerpo $L$ y un subcuerpo $K$ de $L$, decimos que $L$ es una extension
+de $K$.
 
 El elemento neutro de un anillo $A$ sera escrito casi siempre como $1$.
 
-La noci\'on de \emph{m\'odulo} sobre un anillo $A$ (o de $A$-m\'odulo) es una generalizaci\'on
-directa del concepto de espacio vectorial sobre un cuerpo. Un $A$-modulo $M$ es un grupo abeliano
-(escrito aditivamente) junto con una aplicaci\'on $A\times M\to M$ (escrita multiplicativamente)
-tal que $a(x+y)=ax+ay$, $(a+b)x = ax+bx$, $a(bx) = (ab)x$ y $1x = x$ ($a,b\in A$, $x,y\in M$).
-Se tienen las nociones de subm\'odulo y m\'odulo cociente. Dados dos $A$-m\'odulos $M$ y $M'$,
-un homomorfismo (o aplicaci\'on $A$-lineal) de $M$ en $M'$ es una
-funci\'on $f:M\to M'$ tal que
+La noci\'on de \emph{m\'odulo} sobre un anillo $A$ (o de $A$-m\'odulo) es una
+generalizaci\'on directa del concepto de espacio vectorial sobre un cuerpo. Un
+$A$-modulo $M$ es un grupo abeliano (escrito aditivamente) junto con una
+aplicaci\'on $A\times M\to M$ (escrita multiplicativamente) tal que
+$a(x+y)=ax+ay$, $(a+b)x = ax+bx$, $a(bx) = (ab)x$ y $1x = x$ ($a,b\in A$,
+$x,y\in M$).  Se tienen las nociones de subm\'odulo y m\'odulo cociente. Dados
+dos $A$-m\'odulos $M$ y $M'$, un homomorfismo (o aplicaci\'on $A$-lineal) de $M$
+en $M'$ es una funci\'on $f:M\to M'$ tal que
 \begin{gather*}
 f(x+y) = f(x)+f(y),\quad f(ax) = af(x)\quad(a\in A, x,y\in M).
 \end{gather*}
@@ -370,7 +420,7 @@ Utilizamos las notaciones usuales para los siguientes objetos matem\'aticos:
 \item[$\FF_{q}$:] cuerpo finito de $q$ elementos (F por ``finito'' o ``field'').
 \end{trivlist}
 
-\mainmatter
+%% \mainmatter
 
 \chapter{Dominios de ideales principales}\label{cap1}
 
@@ -5039,6 +5089,7 @@ que no es otra cosa que la ``f\'ormula comlementaria'' dif\'icil (cap\'itulo~\re
 proposici\'on~\ref{prop5.5.2}, {\itshape b})).
 
 \chapter*{Complementos sin demostraci\'on}
+\addcontentsline{toc}{chapter}{Complementos sin demostraci\'on}
 
 \setcounter{equation}{0}
 
@@ -5159,6 +5210,7 @@ para los diferentes:
 \end{gather}
 
 \chapter*{Ejercicios}
+\addcontentsline{toc}{chapter}{Ejercicios}
 
 Los ejercicios marcados $A$ son ejercicios ``de reflexi\'on inmediata'', destinados al
 control directo del conocicimiento ?. Los ejercicios marcados B son m\'as elaborados. Los
@@ -5233,7 +5285,7 @@ de caracter\'istica cero, suponemos que $K$ es finito. Explicar porqu\'e. Es int
 el caso de $K$ es finito?
 \end{exer*}
 
-\backmatter
+%\backmatter
 
 \begin{thebibliography}{21}
 
